@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image" href="images/logo_bw_1000_br">
+    <title>QuestioNIS — all-in-one website for Nazarbayev Intellectual Schools (NIS): events, questions and answers, timetable, educational materials</title>
+</head>
+<body id="app">
+    <div class="body__container">
+
+        <header class="header">
+            <div class="header__container">
+                <button class="header__logo-container" onclick="disableScroll()" @click="disableScroll=true; sidebar=true">
+                    <svg class="header__logo" viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="1000" height="1000" fill="white"/><circle cx="450" cy="500" r="300" fill="black"/><rect x="450" y="200" width="100" height="600" fill="black"/><rect x="643.93" y="714.64" width="100" height="100" transform="rotate(-45 643.93 714.64)" fill="black"/><circle cx="750" cy="750" r="50" fill="black"/><rect x="750" y="700" width="50" height="100" fill="black"/><circle cx="800" cy="750" r="50" fill="white"/><rect x="693.93" y="714.64" width="100" height="100" transform="rotate(-45 693.93 714.64)" fill="white"/><rect x="693.93" y="714.64" width="100" height="100" transform="rotate(-45 693.93 714.64)" fill="url(#paint0_linear)"/><circle cx="450" cy="500" r="150" fill="white"/><path d="M850 500C850 665.685 715.685 800 550 800C384.315 800 250 665.685 250 500C250 334.315 384.315 200 550 200C715.685 200 850 334.315 850 500ZM400 500C400 582.843 467.157 650 550 650C632.843 650 700 582.843 700 500C700 417.157 632.843 350 550 350C467.157 350 400 417.157 400 500Z" fill="white"/><defs><linearGradient id="paint0_linear" x1="743.93" y1="714.64" x2="743.93" y2="814.64" gradientUnits="userSpaceOnUse"><stop/><stop offset="1" stop-color="white"/></linearGradient></defs></svg>
+                </button>
+                <div class="header__title" v-if="page=='home'">QuestioNIS</div>
+                <div class="header__title" v-else-if="page=='qna'">Q&A</div>
+                <div class="header__title" v-else-if="page=='library'">Library</div>
+                <div class="header__title" v-else-if="page=='timetable'">Timetable</div>
+                <div class="header__title" v-else-if="page=='events'">Events</div>
+                <div class="header__title" v-else-if="page=='profile'">Profile</div>
+                <div class="header__title" v-else-if="page=='question'"></div>
+                <button class="header__filter-btn" v-if="(page=='qna') || (page=='library') || (page=='events')"><ion-icon v-pre name="filter-outline"></ion-icon></button>
+                <button class="header__view-btn" v-else-if="page=='timetable'"><ion-icon v-pre name="eye-outline"></ion-icon></button>
+                <button class="header__settings-btn" v-else-if="page=='profile'"><ion-icon v-pre name="settings-outline"></ion-icon></button>
+                <button class="header__search-btn" v-if="(page=='qna') || (page=='library') || (page=='timetable') || (page=='events')"><ion-icon v-pre name="search-outline"></ion-icon></button>
+                <button class="header__logout-btn" v-else-if="page=='profile'"><ion-icon v-pre name="log-out-outline"></ion-icon></button>
+            </div>
+        </header>
+
+        <main class="main-home" v-if="page=='home'">
+            <div class="illustration"> <div class="illustration-main"> <div class="i-grid"> <div class="i-grid-left"> <div class="i-grid-arrow-container i-grid-arrow-left"> <div class="i-grid-arrow"></div></div><div class="i-grid-lines i-grid-lines-left"> <div class="i-grid-line i-grid-line1"></div><div class="i-grid-line i-grid-line2"></div><div class="i-grid-line i-grid-line3"></div><div class="i-grid-line i-grid-line4"></div><div class="i-grid-line i-grid-line5"></div><div class="i-grid-line i-grid-line-last"></div></div><div class="i-hor-grid-lines i-hor-grid-lines-left"> <div class="i-hor-grid-line i-hor-grid-line1"></div><div class="i-hor-grid-line i-hor-grid-line2"></div><div class="i-hor-grid-line i-hor-grid-line3"></div><div class="i-hor-grid-line i-hor-grid-line4"></div><div class="i-hor-grid-line i-hor-grid-line5"></div><div class="i-hor-grid-line i-hor-left-grid-line-last"></div></div><div class="i-test"> <div class="i-shadow"></div><div class="i-shadow-edge1-alt"></div><div class="i-shadow-edge2-alt"></div><div class="i-content i-test-content"> <div class="i-test-question"></div><div class="i-test-answer"> <div class="i-test-checkbox"></div><div class="i-test-answer-text"></div></div><div class="i-test-answer"> <div class="i-test-checkbox"></div><div class="i-test-answer-text"></div></div><div class="i-test-answer"> <div class="i-test-checkbox"></div><div class="i-test-answer-text"></div></div></div></div><div class="i-gpa"> <div class="i-shadow"></div><div class="i-shadow-edge1-alt"></div><div class="i-shadow-edge2-alt"></div><div class="i-content i-gpa-content"> <div class="i-gpa-icon"><svg viewBox="0 0 512 512" fill="indigo"><g><g><path d="M256,0C114.844,0,0,114.844,0,256s114.844,256,256,256s256-114.844,256-256S397.156,0,256,0z M256,74.667c67.635,0,122.667,55.031,122.667,122.667S323.635,320,256,320s-122.667-55.031-122.667-122.667S188.365,74.667,256,74.667zM256,469.333c-69.707,0-131.52-33.755-170.473-85.615c42.676-20.534,103.621-42.385,170.473-42.385c66.857,0,127.807,21.854,170.474,42.383C387.521,435.577,325.708,469.333,256,469.333z"/></g></g></svg></div><div class="i-gpa-text"></div><div class="i-gpa-mark">GPA: 5.0</div></div></div></div><div class="i-grid-center"> <div class="i-grid-arrow-container i-grid-arrow-center"> <div class="i-grid-arrow"></div></div><div class="i-grid-line-center"></div></div><div class="i-grid-right"> <div class="i-grid-arrow-container i-grid-arrow-right"> <div class="i-grid-arrow"></div></div><div class="i-grid-lines i-grid-lines-right"> <div class="i-grid-line i-grid-line-last"></div><div class="i-grid-line i-grid-line5"></div><div class="i-grid-line i-grid-line4"></div><div class="i-grid-line i-grid-line3"></div><div class="i-grid-line i-grid-line2"></div><div class="i-grid-line i-grid-line1"></div></div><div class="i-hor-grid-lines i-hor-grid-lines-right"> <div class="i-hor-grid-line i-hor-grid-line1"></div><div class="i-hor-grid-line i-hor-grid-line2"></div><div class="i-hor-grid-line i-hor-grid-line3"></div><div class="i-hor-grid-line i-hor-grid-line4"></div><div class="i-hor-grid-line i-hor-grid-line5"></div><div class="i-hor-grid-line i-hor-right-grid-line-last"></div></div><div class="i-timeline"> <div class="i-shadow"></div><div class="i-shadow-edge1"></div><div class="i-shadow-edge2"></div><div class="i-content"> <div class="i-timeline-line"> <div class="i-timeline-line-completed"></div><div class="i-timeline-dots"> <div class="i-timeline-dot i-timeline-dot-completed"></div><div class="i-timeline-dot i-timeline-dot-completed"></div><div class="i-timeline-dot i-timeline-dot-completed"></div><div class="i-timeline-dot"></div><div class="i-timeline-dot"></div></div></div></div></div><div class="i-tt"> <div class="i-shadow"></div><div class="i-shadow-edge1"></div><div class="i-shadow-edge2"></div><div class="i-content i-tt-content"> <div class="i-tt-row"> <div class="i-tt-item i-tt-item1"><p class="i-tt-weekday">MON</p></div><div class="i-tt-item i-tt-item2"><p class="i-tt-weekday">TUE</p></div><div class="i-tt-item i-tt-item3"><p class="i-tt-weekday">WED</p></div><div class="i-tt-item i-tt-item4"><p class="i-tt-weekday">THU</p></div><div class="i-tt-item i-tt-item5"><p class="i-tt-weekday">FRI</p></div><div class="i-tt-item i-tt-item6"><p class="i-tt-weekday">SAT</p></div></div><div class="i-tt-row"> <div class="i-tt-item i-tt-item1"></div><div class="i-tt-item i-tt-item2"></div><div class="i-tt-item i-tt-item3"></div><div class="i-tt-item i-tt-item4"></div><div class="i-tt-item i-tt-item5"></div><div class="i-tt-item i-tt-item6"></div></div><div class="i-tt-row"> <div class="i-tt-item i-tt-item1"></div><div class="i-tt-item i-tt-item2"></div><div class="i-tt-item i-tt-item3"></div><div class="i-tt-item i-tt-item4"></div><div class="i-tt-item i-tt-item5"></div><div class="i-tt-item i-tt-item6"></div></div><div class="i-tt-row"> <div class="i-tt-item i-tt-item1"></div><div class="i-tt-item i-tt-item2"></div><div class="i-tt-item i-tt-item3"></div><div class="i-tt-item i-tt-item4"></div><div class="i-tt-item i-tt-item5"></div><div class="i-tt-item i-tt-item6"></div></div><div class="i-tt-row"> <div class="i-tt-item i-tt-item1"></div><div class="i-tt-item i-tt-item2"></div><div class="i-tt-item i-tt-item3"></div><div class="i-tt-item i-tt-item4"></div><div class="i-tt-item i-tt-item5"></div><div class="i-tt-item i-tt-item6"></div></div><div class="i-tt-row"> <div class="i-tt-item i-tt-item1"></div><div class="i-tt-item i-tt-item2"></div><div class="i-tt-item i-tt-item3"></div><div class="i-tt-item i-tt-item4"></div><div class="i-tt-item i-tt-item5"></div><div class="i-tt-item i-tt-item6"></div></div></div></div></div></div><div class="i-box"> <div class="i-box-top"></div><div class="i-hat"> <div class="i-hat-line"></div><div class="i-hat-circle"></div><div class="i-hat-middle"></div><div class="i-hat-bottom"></div><div class="i-hat-top"></div></div><div class="i-box-left"> <div class="i-answer2"> <div class="i-shadow i-answer-shadow"></div><div class="i-shadow-edge1 i-answer2-edge1"></div><div class="i-shadow-edge2 i-answer2-edge2"></div><div class="i-content i-answer2-content"> <div class="i-text1011"> <div class="i-text i-text10"></div><div class="i-text i-text11"></div></div><div class="i-img3"></div></div></div><div class="i-answer1"> <div class="i-shadow i-answer-shadow"></div><div class="i-shadow-edge1 i-answer1-edge1"></div><div class="i-shadow-edge2 i-answer1-edge2"></div><div class="i-content i-answer1-content"> <div class="i-img2"></div><div class="i-text789"> <div class="i-text i-text7"></div><div class="i-text i-text8"></div><div class="i-text i-text9"></div></div></div></div><div class="i-piece2"> <div class="i-shadow i-question-shadow"></div><div class="i-shadow-edge1 i-piece2-edge1"></div><div class="i-shadow-edge2 i-piece2-edge2"></div><div class="i-content i-piece2-content"></div></div><div class="i-piece1"> <div class="i-shadow i-question-shadow"></div><div class="i-shadow-edge1 i-piece1-edge1"></div><div class="i-shadow-edge2 i-piece1-edge2"></div><div class="i-content i-piece1-content"></div></div><div class="i-question"> <div class="i-shadow i-question-shadow"></div><div class="i-shadow-edge1 i-question-edge1"></div><div class="i-shadow-edge2 i-question-edge2"></div><div class="i-content i-question-content"> <div class="i-text i-text1"></div><div class="i-text23"> <div class="i-text i-text2"></div><div class="i-text i-text3"></div></div><div class="i-question-bottom"> <div class="i-img1"></div><div class="i-text456"> <div class="i-text i-text4"></div><div class="i-text i-text5"></div><div class="i-text i-text6"></div></div></div></div></div></div><div class="i-box-right"> <div class="i-logo"> <div class="i-logo-sm-shadow"></div><div class="i-logo-sm-edge1 i-shadow-edge1-alt"></div><div class="i-logo-sm-circle"></div><div class="i-logo-sm-edge2 i-shadow-edge2-alt"></div><div class="i-logo-big-shadow"></div><div class="i-logo-edge1 i-shadow-edge1-alt"></div><div class="i-logo-edge2 i-shadow-edge2-alt"></div><div class="i-logo-big-circle"></div><div class="i-logo-mid-shadow"></div><div class="i-logo-mid-circle"></div></div></div></div></div><div class="i-box1 i-extra-box"> <div class="i-box-top"></div><div class="i-box-left"></div><div class="i-box-right"></div></div><div class="i-box2 i-extra-box"> <div class="i-box-top"></div><div class="i-box-left"></div><div class="i-box-right"></div></div><div class="i-box3 i-extra-box"> <div class="i-box-top"></div><div class="i-box-left"></div><div class="i-box-right"></div></div><div class="i-box4 i-extra-box"> <div class="i-box-top"></div><div class="i-box-left"></div><div class="i-box-right"></div></div><div class="i-box5 i-extra-box"> <div class="i-box-top"></div><div class="i-box-left"></div><div class="i-box-right"></div></div><div class="i-box6 i-extra-box"> <div class="i-box-top"></div><div class="i-box-left"></div><div class="i-box-right"></div></div><div class="i-box7 i-extra-box"> <div class="i-box-top"></div><div class="i-box-left"></div><div class="i-box-right"></div></div><div class="i-box8 i-extra-box"> <div class="i-box-top"></div><div class="i-box-left"></div><div class="i-box-right"></div></div><div class="i-box9 i-extra-box"> <div class="i-box-top"></div><div class="i-box-left"></div><div class="i-box-right"></div></div><div class="i-box10 i-extra-box"> <div class="i-box-top"></div><div class="i-box-left"></div><div class="i-box-right"></div></div><div class="i-blur"></div></div>
+            <div class="main-home__container">
+                <h1 class="main-home__heading">QuestioNIS</h1>
+                <h4 class="main-home__text">all-in-one website for NIS: events, Q&A, timetable, educational materials and more</h4>
+                <button class="main-home__btn" onclick="disableScroll()" @click="signinForm=true">Get Started</button>
+            </div>
+        </main>
+
+        <main class="main" v-else-if="page=='qna'">
+            <div class="main__container">
+                <div class="qna__item" v-for="question in sortedQna">
+                    <div class="qna__clickable1" @click="pageChange('question')"></div>
+                    <div class="qna__clickable2" @click="pageChange('question')"></div>
+                    <div class="qna__container">
+                        <img class="qna__img" :src="question.img" v-if="question.img!=='null'">
+                        <div class="qna__top-top">
+                            <p class="qna__title">{{ question.title }}</p>
+                            <div class="qna__top-bottom">
+                                <p class="qna__author">{{ question.author }}</p>
+                                <p class="qna__age">{{ question.age }}</p>
+                            </div>
+                        </div>
+                        <div class="qna__tags" v-if="question.tags.length>0">
+                            <p class="qna__tag" v-for="tag in question.tags">{{ tag }}</p>
+                        </div>
+                        <div class="qna__bottom">
+                            <div class="qna__solved">
+                                <div class="qna__solved-yes" v-if="question.solved==='Solved'">
+                                    <ion-icon v-pre name="checkmark-done-outline"></ion-icon> {{ question.solved }}
+                                </div>
+                                <div class="qna__solved-no" v-else>
+                                    <ion-icon v-pre name="alert-outline"></ion-icon>{{ question.solved }}
+                                </div>
+                            </div>
+                            <div class="qna__comments">
+                                <ion-icon v-pre name="chatbubble-ellipses-outline"></ion-icon> {{ question.comments }}
+                            </div>
+                            <div class="qna__upvotes" :class="question.upvote">
+                                <div class="qna__upvote" @click="upvote(question.questionid)"><ion-icon v-pre name="arrow-up-outline"></ion-icon></div> {{ question.upvotes }} <div class="qna__downvote" @click="downvote(question.questionid)"><ion-icon v-pre name="arrow-down-outline"></ion-icon></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar" v-show="sidebar">
+            <div class="blank" onclick="enableScroll()" @click="sidebar=false"></div>
+            <div class="sidebar__container">
+                <div class="sidebar__info" v-show="loggedin">
+                    <img class="sidebar__img" :src="user.pic">
+                    <div class="sidebar__name">{{ user.fname + " " + user.lname }}</div>
+                    <div class="sidebar__additional">{{ user.additional }}</div>
+                    <div class="sidebar__theme" :class="user.darkTheme && 'dark'" @click="theme">
+                        <span class="slider"></span>
+                    </div>
+                </div>
+                <div class="sidebar__nav">
+                    <button class="sidebar__nav-item" onclick="enableScroll()" :class="(page=='home') && 'active'" @click="pageChange('home'); sidebar=false; scroll()">
+                        <ion-icon v-pre name="home-outline"></ion-icon>
+                        <div>Home</div>
+                    </button>
+                    <button class="sidebar__nav-item" onclick="enableScroll()" :class="(page=='qna') && 'active'" @click="pageChange('qna'); sidebar=false; scroll()">
+                        <ion-icon v-pre name="chatbubbles-outline"></ion-icon>
+                        <div>Q&A</div>
+                    </button>
+                    <button class="sidebar__nav-item" onclick="enableScroll()" :class="(page=='library') && 'active'" @click="pageChange('library'); sidebar=false; scroll()">
+                        <ion-icon v-pre name="book-outline"></ion-icon>
+                        <div>Library</div>
+                    </button>
+                    <button class="sidebar__nav-item" onclick="enableScroll()" :class="(page=='timetable') && 'active'" @click="pageChange('timetable'); sidebar=false; scroll()">
+                        <ion-icon v-pre name="grid-outline"></ion-icon>
+                        <div>Timetable</div>
+                    </button>
+                    <button class="sidebar__nav-item" onclick="enableScroll()" :class="(page=='events') && 'active'" @click="pageChange('events'); sidebar=false; scroll()">
+                        <ion-icon v-pre name="calendar-outline"></ion-icon>
+                        <div>Events</div>
+                    </button>
+                    <hr>
+                    <button v-if="loggedin" class="sidebar__nav-item" onclick="enableScroll()" :class="(page=='profile') && 'active'" @click="pageChange('profile'); sidebar=false; scroll()">
+                        <ion-icon v-pre name="person-outline"></ion-icon>
+                        <div>Profile</div>
+                    </button>
+                    <button class="sidebar__nav-item" v-else @click="sidebar=false; signinForm=true">
+                        <ion-icon v-pre name="log-in-outline"></ion-icon>
+                        <div>Sign in</div>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <div class="form form__signin" v-show="signinForm">
+            <div class="blank" onclick="enableScroll()" @click="signinForm=false; clearSignin()"></div>
+            <div class="form__container">
+                <div class="form__x" onclick="enableScroll()" @click="signinForm=false; clearSignin()"></div>
+                <div class="form__content">
+                    <h2 class="form__heading">Sign in</h2>
+                    <input class="signin-form__iin" placeholder="IIN" type="text" @keyup.enter="this.$el.querySelector('.signin-form__password').focus()" spellcheck="false">
+                    <input class="signin-form__password" placeholder="Password" type="password" @keyup.enter="this.$el.querySelector('.signin-primary').click()">
+                    <input class="signin-form__remember" id="signin-form__remember" type="checkbox">
+                    <label class="form__remember__label" for="signin-form__remember">Remember me</label>
+                    <button class="primary signin-primary" @click="signin">SIGN IN</button>
+                    <button class="secondary" @click="signupForm=true; clearSignin()">SIGN UP</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="form" v-show="signupForm">
+            <div class="blank" onclick="enableScroll()" @click="signinForm=false; signupForm=false; clearSignup()"></div>
+            <div class="form__container">
+                <div class="form__x" onclick="enableScroll()" @click="signinForm=false; signupForm=false; clearSignup()"></div>
+                <div class="form__content signup">
+                    <h2 class="form__heading">Sign up</h2>
+                    <input class="form__iin" placeholder="IIN" type="text" @keyup.enter="this.$el.querySelector('.form__fname').focus()" spellcheck="false">
+                    <input class="form__fname" placeholder="First name" type="text" @keyup.enter="this.$el.querySelector('.form__lname').focus()" spellcheck="false">
+                    <input class="form__lname" placeholder="Last name" type="text" spellcheck="false">
+                    <select class="form__sex">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                    <select class="form__status" @change="statusChange">
+                        <option value="Student">Student</option>
+                        <option value="Teacher">Teacher</option>
+                        <option value="Parent">Parent</option>
+                    </select>
+                    <select class="form__class">
+                        <option value="7A">7A</option>
+                        <option value="7B">7B</option>
+                        <option value="7C">7C</option>
+                        <option value="7K">7K</option>
+                        <option value="7L">7L</option>
+                        <option value="8A">8A</option>
+                        <option value="8B">8B</option>
+                        <option value="8C">8C</option>
+                        <option value="8K">8K</option>
+                        <option value="8L">8L</option>
+                        <option value="9A">9A</option>
+                        <option value="9B">9B</option>
+                        <option value="9C">9C</option>
+                        <option value="9D">9D</option>
+                        <option value="9K">9K</option>
+                        <option value="9L">9L</option>
+                        <option value="10A">10A</option>
+                        <option value="10B">10B</option>
+                        <option value="10C">10C</option>
+                        <option value="10D">10D</option>
+                        <option value="10K">10K</option>
+                        <option value="10L">10L</option>
+                        <option value="11A">11A</option>
+                        <option value="11B">11B</option>
+                        <option value="11C">11C</option>
+                        <option value="11K">11K</option>
+                        <option value="11L">11L</option>
+                        <option value="12A">12A</option>
+                        <option value="12B">12B</option>
+                        <option value="12C">12C</option>
+                        <option value="12D">12D</option>
+                        <option value="12F">12F</option>
+                        <option value="12K">12K</option>
+                        <option value="12L">12L</option>
+                    </select>
+                    <select class="form__subject" style="display: none">
+                        <option value="Art">Art</option>
+                        <option value="Biology">Biology</option>
+                        <option value="Chemistry">Chemistry</option>
+                        <option value="English language">English language</option>
+                        <option value="Geography">Geography</option>
+                        <option value="GPPW">GPPW</option>
+                        <option value="History">History</option>
+                        <option value="ICT">ICT</option>
+                        <option value="IMT">IMT</option>
+                        <option value="Kazakh language">Kazakh language</option>
+                        <option value="Math">Math</option>
+                        <option value="Physical education">Physical education</option>
+                        <option value="Physics">Physics</option>
+                        <option value="Russian language">Russian language</option>
+                    </select>
+                    <input class="form__childIIN" style="display: none" placeholder="IIN of the child" type="text" @keyup.enter="this.$el.querySelector('.form__password').focus()" spellcheck="false">
+                    <input class="form__password" placeholder="Password" type="password" @keyup.enter="this.$el.querySelector('.form__password2').focus()">
+                    <input class="form__password2" placeholder="Confirm password" type="password" @keyup.enter="this.$el.querySelector('.signup-primary').click()">
+                    <input class="form__remember" id="form__remember" type="checkbox">
+                    <label class="form__remember__label" for="form__remember">Remember me</label>
+                    <button class="primary signup-primary" @click="signup">SIGN UP</button>
+                    <button class="secondary" @click="signupForm=false; clearSignup()">SIGN IN</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="message red-message" v-show="loginErrorMessage">
+            <div class="message__content">
+                <p>Invalid credentials. Please try again</p>
+            </div>
+        </div>
+
+        <div class="message red-message" v-show="registerErrorMessage">
+            <div class="message__content">
+                <p>An account with this IIN already exists</p>
+            </div>
+        </div>
+
+        <div class="message red-message" v-show="parentErrorMessage">
+            <div class="message__content">
+                <p>A student with such an IIN does not have an account yet</p>
+            </div>
+        </div>
+
+        <div class="message red-message" v-show="passwordErrorMessage">
+            <div class="message__content">
+                <p>The password must contain at least 8 characters</p>
+            </div>
+        </div>
+
+        <div class="message red-message" v-show="passwordsErrorMessage">
+            <div class="message__content">
+                <p>Passwords don't match</p>
+            </div>
+        </div>
+
+        <div class="message green-message" v-show="loginMessage">
+            <div class="message__content">
+                <p>Hello, {{ user.fname }}!</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="script.js" type="text/JavaScript"></script>
+</body>
+</html>
