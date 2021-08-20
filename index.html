@@ -26,7 +26,14 @@
                 <div class="header__title" v-else-if="page=='events'">Events</div>
                 <div class="header__title" v-else-if="page=='profile'">Profile</div>
                 <div class="header__title" v-else-if="page=='question'"></div>
-                <button class="header__filter-btn" v-if="(page=='qna') || (page=='library') || (page=='events')"><ion-icon v-pre name="filter-outline"></ion-icon></button>
+                <button class="header__filter-btn" v-if="(page=='qna') || (page=='library') || (page=='events')">
+                    <ion-icon v-pre name="filter-outline"></ion-icon>
+                    <div class="header__filter">
+                        <div class="header__filter__content">
+                            <h2 class="header__filter__heading">Filter</h2>
+                        </div>
+                    </div>
+                </button>
                 <button class="header__view-btn" v-else-if="page=='timetable'"><ion-icon v-pre name="eye-outline"></ion-icon></button>
                 <button class="header__settings-btn" v-else-if="page=='profile'"><ion-icon v-pre name="settings-outline"></ion-icon></button>
                 <button class="header__search-btn" v-if="(page=='qna') || (page=='library') || (page=='timetable') || (page=='events')"><ion-icon v-pre name="search-outline"></ion-icon></button>

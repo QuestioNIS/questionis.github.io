@@ -136,6 +136,28 @@ body {
     background-color: var(--header-button);
 }
 
+.header__filter {
+    display: block;
+    margin-top: 3px;
+    margin-left: -190px;
+    padding: 10px;
+    width: 260px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #000;
+}
+
+.header__filter__content * {
+    width: 100%;
+    text-align: left;
+}
+
+.header__filter__
+
+.header__filter-btn:focus .header__filter {
+    display: block;
+}
+
 .header__search-btn, .header__logout-btn {
     width: 30px;
     margin: 0 10px;
@@ -225,23 +247,23 @@ body {
 }
 
 .qna__title {
-    max-height: 52px;
+    max-height: 50px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    font-size: 22px;
-    line-height: 26px;
-    margin-top: -2px;
+    font-size: 20px;
+    line-height: 25px;
+    margin-top: 0px;
 }
 
 .qna__top-bottom {
-    height: 12px;
-    font-size: 12px;
+    height: 15px;
+    font-size: 15px;
     color: #777;
-    line-height: 12px;
-    margin-top: 4px;
+    line-height: 15px;
+    margin-top: 5px;
     display: flex;
     justify-content: space-between;
 }
@@ -256,13 +278,13 @@ body {
 
 .qna__tag {
     display: inline-block;
-    font-size: 11px;
-    line-height: 11px;
-    height: 21px;
-    padding: 5px 8px;
-    margin: 5px 5px 0 0; 
+    font-size: 12px;
+    line-height: 12px;
+    height: 20px;
+    padding: 3px 8px 4px;
+    margin: 5px 5px 0 0;
     background-color: var(--qna-tags);
-    border-radius: 15px;
+    border-radius: 20px;
 }
 
 .qna__bottom {
