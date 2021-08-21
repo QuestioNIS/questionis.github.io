@@ -137,24 +137,24 @@ body {
 }
 
 .header__filter {
-    display: block;
+    display: none;
     margin-top: 3px;
     margin-left: -190px;
     padding: 10px;
     width: 260px;
-    background-color: #fff;
+    background-color: var(--body);
     border-radius: 8px;
-    box-shadow: 0 0 10px #000;
+    box-shadow: 0 0 10px #555;
+    cursor: default;
 }
 
 .header__filter__content * {
     width: 100%;
     text-align: left;
+    margin-bottom: 10px;
 }
 
-.header__filter__
-
-.header__filter-btn:focus .header__filter {
+.header__filter-btn:hover .header__filter {
     display: block;
 }
 
