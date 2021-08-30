@@ -246,12 +246,6 @@ body {
     margin-bottom: 10px;
 }
 
-.header__filter__button {
-    text-align: center;
-    cursor: pointer;
-    margin-bottom: 0;
-}
-
 .header__search-btn, .header__logout-btn {
     width: 30px;
     margin: 0 10px;
@@ -370,6 +364,11 @@ body {
     border-radius: 8px;
 }
 
+.qna__tags {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .qna__tag {
     display: inline-block;
     font-size: 12px;
@@ -379,6 +378,7 @@ body {
     margin: 5px 5px 0 0;
     background-color: var(--qna-tags);
     border-radius: 20px;
+    flex: 1 1 initial;
 }
 
 .qna__bottom {
