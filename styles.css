@@ -364,11 +364,6 @@ body {
     border-radius: 8px;
 }
 
-.qna__tags {
-    display: flex;
-    flex-wrap: wrap;
-}
-
 .qna__tag {
     display: inline-block;
     font-size: 12px;
@@ -378,7 +373,6 @@ body {
     margin: 5px 5px 0 0;
     background-color: var(--qna-tags);
     border-radius: 20px;
-    flex: 1 1 initial;
 }
 
 .qna__tag:last-child {
