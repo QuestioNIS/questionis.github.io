@@ -330,7 +330,6 @@ body {
 
 .qna__top {
     display: flex;
-    width: inherit;
     justify-content: space-between;
 }
 
