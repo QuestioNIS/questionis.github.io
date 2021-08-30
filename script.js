@@ -130,6 +130,15 @@ let app = Vue.createApp({
             window.sessionStorage.setItem("page", page)
             this.page = window.sessionStorage.getItem("page")
         },
+        openSearch() {
+            this.$el.querySelector('.header__search').style.display = "block"
+            this.$el.querySelector('.header__search__button').style.display = "block"
+            this.$el.querySelector('.header__search__input').focus();
+        },
+        closeSearch() {
+            this.$el.querySelector('.header__search').style.display = "none"
+            this.$el.querySelector('.header__search__button').style.display = "none"
+        },
         statusChange() {
             if(this.$el.querySelector(".form__status").value=="Student") {
                 this.$el.querySelector(".form__class").style.display = "block";
