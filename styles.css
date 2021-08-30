@@ -328,6 +328,12 @@ body {
     display: inline;
 }
 
+.qna__top {
+    display: flex;
+    width: inherit;
+    justify-content: space-between;
+}
+
 .qna__top-top {
     display: flex;
     flex-direction: column;
@@ -359,7 +365,6 @@ body {
 .qna__img {
     height: 70px;
     width: 70px;
-    float: right;
     margin-left: 10px;
     border-radius: 8px;
 }
