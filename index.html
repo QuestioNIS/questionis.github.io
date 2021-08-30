@@ -104,15 +104,13 @@
                     <div class="qna__clickable1" @click="pageChange('question')"></div>
                     <div class="qna__clickable2" @click="pageChange('question')"></div>
                     <div class="qna__container">
-                        <div class="qna__top">
-                            <div class="qna__top-top">
-                                <p class="qna__title">{{ question.title }}</p>
-                                <div class="qna__top-bottom">
-                                    <p class="qna__author">{{ question.author }}</p>
-                                    <p class="qna__age">{{ question.age }}</p>
-                                </div>
+                        <img class="qna__img" :src="question.img" v-if="question.img!=='null'">
+                        <div class="qna__top-top">
+                            <p class="qna__title">{{ question.title }}</p>
+                            <div class="qna__top-bottom">
+                                <p class="qna__author">{{ question.author }}</p>
+                                <p class="qna__age">{{ question.age }}</p>
                             </div>
-                            <img class="qna__img" :src="question.img" v-if="question.img!=='null'">
                         </div>
                         <div class="qna__tags" v-if="question.tags.length>0">
                             <p class="qna__tag" v-for="tag in question.tags">{{ tag }}</p>

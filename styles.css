@@ -328,20 +328,13 @@ body {
     display: inline;
 }
 
-.qna__top {
-    display: flex;
-    justify-content: space-between;
-}
-
 .qna__top-top {
     display: flex;
-    width: 100%;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .qna__title {
-    max-height: 50px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -349,7 +342,6 @@ body {
     -webkit-box-orient: vertical;
     font-size: 20px;
     line-height: 25px;
-    margin-top: 0px;
 }
 
 .qna__top-bottom {
@@ -357,7 +349,7 @@ body {
     font-size: 15px;
     color: #777;
     line-height: 15px;
-    margin-top: 5px;
+    margin-top: 6px;
     display: flex;
     justify-content: space-between;
 }
@@ -365,6 +357,7 @@ body {
 .qna__img {
     height: 70px;
     width: 70px;
+    float: right;
     margin-left: 10px;
     border-radius: 8px;
 }
