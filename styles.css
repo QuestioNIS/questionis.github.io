@@ -137,11 +137,11 @@ body {
 }
 
 .header__filter {
-    display: none;
+    display: block;
     margin-top: 3px;
-    margin-left: -190px;
+    margin-left: calc(130px - 100vw);
     padding: 10px;
-    width: 260px;
+    width: calc(100vw - 60px);
     background-color: var(--body);
     border-radius: 8px;
     box-shadow: 0 0 10px #555;
@@ -156,6 +156,98 @@ body {
 
 .header__filter-btn:hover .header__filter {
     display: block;
+}
+
+.header__filter__tags {
+    display: none;
+}
+
+.header__filter__tags__label {
+    line-height: 30px;
+    padding: 0 5px;
+    height: 30px;
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    border-radius: 8px;
+    text-align: justify !important;
+    z-index: 1;
+}
+
+.header__filter__tags__label ion-icon {
+    position: absolute;
+    right: 0;
+    margin: 7px 0;
+    color: #000;
+    height: 16px;
+    width: 16px;
+    transition: all 0.3s;
+}
+
+.header__filter__tags:checked ~ .header__filter__tags__label ion-icon {
+    transform: rotate(45deg);
+}
+
+.header__filter__tags__accordion {
+    background-color: #fff;
+    position: relative;
+    border-radius: 0 0 8px 8px;
+    top: -18px;
+    margin-bottom: -8px;
+    padding: 8px 0 0;
+    width: inherit;
+    overflow: hidden;
+    transform: scaleY(0);
+    transform-origin: top;
+    opacity: 0;
+    max-height: 0;
+    transition: opacity .5s,
+                transform .7s .5s,
+                max-height .7s .5s;
+}
+
+.header__filter__tags:checked ~ .header__filter__tags__accordion {
+    transform: scaleY(1);
+    opacity: 1;
+    max-height: 500px;
+    transition: transform .7s,
+                opacity .5s .7s,
+                max-height .7s;
+}
+
+.header__filter__tags__accordion__tags {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: inherit;
+    margin: 0 7.5px;
+}
+
+.header__filter__tag {
+    display: none;
+}
+
+.header__filter__tag__label {
+    background-color: var(--body);
+    border-radius: 20px;
+    font-size: 12px;
+    line-height: 12px;
+    height: 24px;
+    margin: 0 2.5px 5px;
+    padding-top: 6px;
+    padding-bottom: 4px !important;
+    text-align: center;
+    flex: 1 1 106px;
+}
+
+.header__filter__tag__label__all {
+    margin-bottom: 10px;
+}
+
+.header__filter__button {
+    text-align: center;
 }
 
 .header__search-btn, .header__logout-btn {
@@ -601,7 +693,7 @@ body {
 .form__content {
     max-height: 100%;
     width: 100%;
-    overflow: scroll;
+    overflow-y: auto;
 }
 
 .form__content h2,
@@ -617,22 +709,22 @@ body {
     width: 100%;
 }
 
-.form__remember__label {
+.form label {
     position: relative;
     top: -4px;
     left: 3px;
 }
 
-.signin-form__remember, .form__remember {
+input[type="checkbox"] {
     height: 20px;
     width: 20px !important;
 }
 
-.form .primary {
+.primary {
     background-color: var(--accent1);
 }
 
-.form .secondary {
+.secondary {
     border: 2px solid var(--accent1);
 }
 
