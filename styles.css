@@ -381,6 +381,10 @@ body {
     flex: 1 1 initial;
 }
 
+.qna__tag:last-child {
+    margin-right: 0;
+}
+
 .qna__bottom {
     height: 28px;
     margin-top: 5px;
