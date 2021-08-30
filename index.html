@@ -16,7 +16,7 @@
 
         <header class="header">
             <div class="header__container">
-                <button class="header__logo-container" onclick="disableScroll()" @click="disableScroll=true; sidebar=true">
+                <button class="header__logo-container" onclick="disableScroll()" @click="disableScroll=true; sidebar=true" title="Sidebar">
                     <svg class="header__logo" viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="1000" height="1000" fill="white"/><circle cx="450" cy="500" r="300" fill="black"/><rect x="450" y="200" width="100" height="600" fill="black"/><rect x="643.93" y="714.64" width="100" height="100" transform="rotate(-45 643.93 714.64)" fill="black"/><circle cx="750" cy="750" r="50" fill="black"/><rect x="750" y="700" width="50" height="100" fill="black"/><circle cx="800" cy="750" r="50" fill="white"/><rect x="693.93" y="714.64" width="100" height="100" transform="rotate(-45 693.93 714.64)" fill="white"/><rect x="693.93" y="714.64" width="100" height="100" transform="rotate(-45 693.93 714.64)" fill="url(#paint0_linear)"/><circle cx="450" cy="500" r="150" fill="white"/><path d="M850 500C850 665.685 715.685 800 550 800C384.315 800 250 665.685 250 500C250 334.315 384.315 200 550 200C715.685 200 850 334.315 850 500ZM400 500C400 582.843 467.157 650 550 650C632.843 650 700 582.843 700 500C700 417.157 632.843 350 550 350C467.157 350 400 417.157 400 500Z" fill="white"/><defs><linearGradient id="paint0_linear" x1="743.93" y1="714.64" x2="743.93" y2="814.64" gradientUnits="userSpaceOnUse"><stop/><stop offset="1" stop-color="white"/></linearGradient></defs></svg>
                 </button>
                 <div class="header__title" v-if="page=='home'">QuestioNIS</div>
@@ -75,8 +75,8 @@
                                     <label class="header__filter__tag__label" for="header__filter__tag__physics">Physics</label>
                                     <input type="checkbox" class="header__filter__tag" id="header__filter__tag__russian">
                                     <label class="header__filter__tag__label" for="header__filter__tag__russian">Russian language</label>
-                                    <input type="checkbox" class="header__filter__tag header__filter__tag__all" id="header__filter__tag__all">
-                                    <label class="header__filter__tag__label header__filter__tag__label__all" for="header__filter__tag__all">All</label>
+                                    <input type="checkbox" class="header__filter__tag header__filter__tag__other" id="header__filter__tag__other">
+                                    <label class="header__filter__tag__label header__filter__tag__label__other" for="header__filter__tag__all">Other</label>
                                 </div>
                             </div>
                             <input type="button" value="Filter" class="header__filter__button primary"></input>

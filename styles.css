@@ -137,7 +137,7 @@ body {
 }
 
 .header__filter {
-    display: block;
+    display: none;
     margin-top: 3px;
     margin-left: calc(130px - 100vw);
     padding: 10px;
@@ -203,9 +203,9 @@ body {
     transform-origin: top;
     opacity: 0;
     max-height: 0;
-    transition: opacity .5s,
-                transform .7s .5s,
-                max-height .7s .5s;
+    transition: opacity .3s,
+                transform .7s .3s,
+                max-height .7s .3s;
 }
 
 .header__filter__tags:checked ~ .header__filter__tags__accordion {
@@ -213,7 +213,7 @@ body {
     opacity: 1;
     max-height: 500px;
     transition: transform .7s,
-                opacity .5s .7s,
+                opacity .3s .7s,
                 max-height .7s;
 }
 
@@ -242,12 +242,14 @@ body {
     flex: 1 1 106px;
 }
 
-.header__filter__tag__label__all {
+.header__filter__tag__label__other {
     margin-bottom: 10px;
 }
 
 .header__filter__button {
     text-align: center;
+    cursor: pointer;
+    margin-bottom: 0;
 }
 
 .header__search-btn, .header__logout-btn {
