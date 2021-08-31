@@ -477,6 +477,9 @@ let app = Vue.createApp({
                     this.sortedQna.sort((a,b) => (Number(b.hotUpvotes) - Number(a.hotUpvotes)));
             }
             this.sortedQna = this.sortedQna.filter(question => this.qnaTags.every(tag => question.tags.includes(tag)))
+            if (this.qnaSearch != "") {
+                this.sortedQna = this.sortedQna.filter(question => (question.title.toLowerCase()).includes(this.qnaSearch.toLowerCase()))
+            }
         },
     }
 }).mount('#app');

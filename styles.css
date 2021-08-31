@@ -252,6 +252,7 @@ body {
 }
 
 .header__filter__button {
+    display: none;
     position: absolute;
     right: 50px;
     height: 30px;
@@ -259,6 +260,10 @@ body {
     border-radius: 8px;
     background-color: var(--body);
     z-index: 2;
+}
+
+.header__filter-btn:hover ~ .header__filter__button {
+    display: block;
 }
 
 .header__search-btn, .header__logout-btn {
@@ -295,6 +300,7 @@ body {
 }
 
 .header__search__button {
+    display: none;
     position: absolute;
     right: 10px;
     height: 30px;
@@ -302,6 +308,10 @@ body {
     border-radius: 8px;
     background-color: var(--body);
     z-index: 2;
+}
+
+.header__search-btn:hover ~ .header__search__button {
+    display: block;
 }
 
 .header__logout-btn ion-icon {
@@ -335,6 +345,7 @@ body {
 
 .main {
     position: relative;
+    height: calc(100vh - 50px);
     top: 50px;
     left: 0;
     width: 100vw;
