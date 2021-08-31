@@ -182,6 +182,25 @@ let app = Vue.createApp({
             window.sessionStorage.setItem("page", page)
             this.page = window.sessionStorage.getItem("page")
         },
+        openFilter() {
+            this.$el.querySelector('.header__filter').style.visibility = "visible"
+            this.$el.querySelector('.header__filter__button').style.visibility = "visible"
+            this.closeSearch()
+        },
+        closeFilter() {
+            this.$el.querySelector('.header__filter').style.visibility = "hidden"
+            this.$el.querySelector('.header__filter__button').style.visibility = "hidden"
+        },
+        openSearch() {
+            this.$el.querySelector('.header__search').style.visibility = "visible"
+            this.$el.querySelector('.header__search__button').style.visibility = "visible"
+            this.$el.querySelector('.header__search__input').focus();
+            this.closeFilter()
+        },
+        closeSearch() {
+            this.$el.querySelector('.header__search').style.visibility = "hidden"
+            this.$el.querySelector('.header__search__button').style.visibility = "hidden"
+        },
         statusChange() {
             if(this.$el.querySelector(".form__status").value=="Student") {
                 this.$el.querySelector(".form__class").style.display = "block";

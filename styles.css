@@ -137,25 +137,72 @@ body {
 }
 
 .header__filter {
-    display: none;
-    margin-top: 3px;
-    margin-left: calc(130px - 100vw);
+    position: absolute;
+    top: 50px;
+    right: 10px;
     padding: 10px;
     width: calc(100vw - 60px);
+    max-width: 500px;
+    max-height: 430px;
     background-color: var(--body);
     border-radius: 8px;
     box-shadow: 0 0 10px #555;
     cursor: default;
 }
 
-.header__filter-btn:active .header__filter {
-    display: block;
+.header__filter[style*="visibility: hidden;"] {
+    animation: filterH .6s;
+    transition-delay: .6s;
+}
+
+@keyframes filterH {
+    50% {
+        top: 50px;
+        right: 50px;
+        max-height: 30px;
+        max-width: 30px;
+    }
+    100% {
+        top: 10px;
+        right: 50px;
+        max-height: 30px;
+        max-width: 30px;
+    }
+}
+
+.header__filter[style*="visibility: visible;"] {
+    animation: filterV 1s;
+}
+
+@keyframes filterV {
+    0% {
+        top: 10px;
+        right: 50px;
+        max-height: 30px;
+        max-width: 30px;
+    }
+    30% {
+        top: 50px;
+        right: 50px;
+        max-height: 30px;
+        max-width: 30px;
+    }
 }
 
 .header__filter__content * {
     width: 100%;
     text-align: left;
     margin-bottom: 10px;
+}
+
+.header__filter__content {
+    opacity: 1;
+    transition-delay: .4s;
+}
+
+.header__filter[style*="visibility: hidden;"] .header__filter__content {
+    opacity: 0;
+    transition-delay: .0s;
 }
 
 .header__filter__tags {
@@ -252,7 +299,6 @@ body {
 }
 
 .header__filter__button {
-    display: none;
     position: absolute;
     right: 50px;
     height: 30px;
@@ -262,8 +308,8 @@ body {
     z-index: 2;
 }
 
-.header__filter-btn:active ~ .header__filter__button {
-    display: block;
+.header__filter__button[style*="visibility: hidden;"] {
+    transition-delay: .6s;
 }
 
 .header__search-btn, .header__logout-btn {
@@ -273,34 +319,42 @@ body {
 }
 
 .header__search {
-    display: none;
     position: absolute;
     top: 0;
-    left: 60px;
+    right: 10px;
     width: calc(100% - 70px);
     height: 50px;
     cursor: default;
+    background-color: var(--accent1);
     z-index: 2;
 }
 
-.header__search-btn:active .header__search {
-    display: block;
+.header__search[style*="visibility: hidden;"] {
+    background-color: transparent;
+    transition-delay: .3s;
 }
-
+    
 .header__search__content {
+    width: 100%;
     display: flex;
-    margin: 10px 0;
+    margin: 10px 0 10px auto;
     border-radius: 8px;
     background-color: #fff;
+    transition: all .3s;
+}
+
+.header__search[style*="visibility: hidden;"] .header__search__content {
+    width: 30px;
+    transition: all .3s;
 }
 
 .header__search__input {
     height: 30px;
+    min-width: 30px;
     width: calc(100% - 30px);
 }
 
 .header__search__button {
-    display: none;
     position: absolute;
     right: 10px;
     height: 30px;
@@ -310,8 +364,8 @@ body {
     z-index: 2;
 }
 
-.header__search-btn:active ~ .header__search__button {
-    display: block;
+.header__search__button[style*="visibility: hidden;"] {
+    transition-delay: .7s;
 }
 
 .header__logout-btn ion-icon {
@@ -345,7 +399,6 @@ body {
 
 .main {
     position: relative;
-    height: calc(100vh - 50px);
     top: 50px;
     left: 0;
     width: 100vw;
