@@ -31,12 +31,12 @@
                     <div class="header__filter">
                         <div class="header__filter__content">
                             <h2 class="header__filter__heading">Filter</h2>
-                            <select class="header__filter__solved">
+                            <select class="header__filter__solved" v-model="qnaSolved" @change="updateQna">
                                 <option value="All">All</option>
                                 <option value="Solved">Solved</option>
                                 <option value="Unsolved">Unsolved</option>
                             </select>
-                            <select class="header__filter__sort">
+                            <select class="header__filter__sort" v-model="qnaSorting" @change="updateQna">
                                 <option value="Hot">Hot</option>
                                 <option value="New">New</option>
                                 <option value="Top">Top</option>
@@ -47,53 +47,54 @@
                             <div class="header__filter__tags__accordion">
                                 <hr>
                                 <div class="header__filter__tags__accordion__tags">
-                                    <input type="checkbox" class="header__filter__tag" id="header__filter__tag__art">
-                                    <label class="header__filter__tag__label" for="header__filter__tag__art">Art</label>
-                                    <input type="checkbox" class="header__filter__tag" id="header__filter__tag__biology">
-                                    <label class="header__filter__tag__label" for="header__filter__tag__biology">Biology</label>
-                                    <input type="checkbox" class="header__filter__tag" id="header__filter__tag__chemistry">
-                                    <label class="header__filter__tag__label" for="header__filter__tag__chemistry">Chemistry</label>
-                                    <input type="checkbox" class="header__filter__tag" id="header__filter__tag__english">
-                                    <label class="header__filter__tag__label" for="header__filter__tag__english">English language</label>
-                                    <input type="checkbox" class="header__filter__tag" id="header__filter__tag__geography">
-                                    <label class="header__filter__tag__label" for="header__filter__tag__geography">Geography</label>
-                                    <input type="checkbox" class="header__filter__tag" id="header__filter__tag__gppw">
-                                    <label class="header__filter__tag__label" for="header__filter__tag__gppw">GPPW</label>
-                                    <input type="checkbox" class="header__filter__tag" id="header__filter__tag__history">
-                                    <label class="header__filter__tag__label" for="header__filter__tag__history">History</label>
-                                    <input type="checkbox" class="header__filter__tag" id="header__filter__tag__ict">
-                                    <label class="header__filter__tag__label" for="header__filter__tag__ict">ICT</label>
-                                    <input type="checkbox" class="header__filter__tag" id="header__filter__tag__imt">
-                                    <label class="header__filter__tag__label" for="header__filter__tag__imt">IMT</label>
-                                    <input type="checkbox" class="header__filter__tag" id="header__filter__tag__kazakh">
-                                    <label class="header__filter__tag__label" for="header__filter__tag__kazakh">Kazakh language</label>
-                                    <input type="checkbox" class="header__filter__tag" id="header__filter__tag__math">
-                                    <label class="header__filter__tag__label" for="header__filter__tag__math">Math</label>
-                                    <input type="checkbox" class="header__filter__tag" id="header__filter__tag__physical">
-                                    <label class="header__filter__tag__label" for="header__filter__tag__physical">Physical education</label>
-                                    <input type="checkbox" class="header__filter__tag" id="header__filter__tag__physics">
-                                    <label class="header__filter__tag__label" for="header__filter__tag__physics">Physics</label>
-                                    <input type="checkbox" class="header__filter__tag" id="header__filter__tag__russian">
-                                    <label class="header__filter__tag__label" for="header__filter__tag__russian">Russian language</label>
-                                    <input type="checkbox" class="header__filter__tag header__filter__tag__other" id="header__filter__tag__other">
-                                    <label class="header__filter__tag__label header__filter__tag__label__other" for="header__filter__tag__all">Other</label>
+                                    <input type="checkbox" class="header__filter__tag" id="Art" v-model="qnaTags" value="Art" @change="updateQna">
+                                    <label class="header__filter__tag__label" id="Art__label" for="Art">Art</label>
+                                    <input type="checkbox" class="header__filter__tag" id="Biology" v-model="qnaTags" value="Biology" @change="updateQna">
+                                    <label class="header__filter__tag__label" id="Biology__label" for="Biology">Biology</label>
+                                    <input type="checkbox" class="header__filter__tag" id="Chemistry" v-model="qnaTags" value="Chemistry" @change="updateQna">
+                                    <label class="header__filter__tag__label" id="Chemistry__label" for="Chemistry">Chemistry</label>
+                                    <input type="checkbox" class="header__filter__tag" id="English" v-model="qnaTags" value="English" @change="updateQna">
+                                    <label class="header__filter__tag__label" id="English__label" for="English">English</label>
+                                    <input type="checkbox" class="header__filter__tag" id="Geography" v-model="qnaTags" value="Geography" @change="updateQna">
+                                    <label class="header__filter__tag__label" id="Geography__label" for="Geography">Geography</label>
+                                    <input type="checkbox" class="header__filter__tag" id="GPPW" v-model="qnaTags" value="GPPW" @change="updateQna">
+                                    <label class="header__filter__tag__label" id="GPPW__label" for="GPPW">GPPW</label>
+                                    <input type="checkbox" class="header__filter__tag" id="History" v-model="qnaTags" value="History" @change="updateQna">
+                                    <label class="header__filter__tag__label" id="History__label" for="History">History</label>
+                                    <input type="checkbox" class="header__filter__tag" id="ICT" v-model="qnaTags" value="ICT" @change="updateQna">
+                                    <label class="header__filter__tag__label" id="ICT__label" for="ICT">ICT</label>
+                                    <input type="checkbox" class="header__filter__tag" id="IMT" v-model="qnaTags" value="IMT" @change="updateQna">
+                                    <label class="header__filter__tag__label" id="IMT__label" for="IMT">IMT</label>
+                                    <input type="checkbox" class="header__filter__tag" id="Kazakh" v-model="qnaTags" value="Kazakh" @change="updateQna">
+                                    <label class="header__filter__tag__label" id="Kazakh__label" for="Kazakh">Kazakh</label>
+                                    <input type="checkbox" class="header__filter__tag" id="Math" v-model="qnaTags" value="Math" @change="updateQna">
+                                    <label class="header__filter__tag__label" id="Math__label" for="Math">Math</label>
+                                    <input type="checkbox" class="header__filter__tag" id="PE" v-model="qnaTags" value="PE" @change="updateQna">
+                                    <label class="header__filter__tag__label" id="PE__label" for="PE">PE</label>
+                                    <input type="checkbox" class="header__filter__tag" id="Physics" v-model="qnaTags" value="Physics" @change="updateQna">
+                                    <label class="header__filter__tag__label" id="Physics__label" for="Physics">Physics</label>
+                                    <input type="checkbox" class="header__filter__tag" id="Russian" v-model="qnaTags" value="Russian" @change="updateQna">
+                                    <label class="header__filter__tag__label" id="Russian__label" for="Russian">Russian</label>
+                                    <input type="checkbox" class="header__filter__tag header__filter__tag__other" id="Other" v-model="qnaTags" value="Other" @change="updateQna">
+                                    <label class="header__filter__tag__label header__filter__tag__label__other" id="Other__label" for="Other">Other</label>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </button>
+                <button class="header__filter__button" v-if="(page=='qna') || (page=='library') || (page=='events')"><ion-icon v-pre name="filter-outline"></ion-icon></button>
                 <button class="header__view-btn" v-else-if="page=='timetable'"><ion-icon v-pre name="eye-outline"></ion-icon></button>
                 <button class="header__settings-btn" v-else-if="page=='profile'"><ion-icon v-pre name="settings-outline"></ion-icon></button>
                 <button class="header__logout-btn" v-if="page=='profile'"><ion-icon v-pre name="log-out-outline"></ion-icon></button>
-                <button class="header__search-btn" v-else-if="(page=='qna') || (page=='library') || (page=='timetable') || (page=='events')" @click="openSearch">
+                <button class="header__search-btn" v-else-if="(page=='qna') || (page=='library') || (page=='timetable') || (page=='events')" @click="this.$el.querySelector('.header__search__input').focus();">
                     <ion-icon v-pre name="search-outline"></ion-icon>
-                    <div class="header__search" style="display: none;">
+                    <div class="header__search">
                         <div class="header__search__content">
-                            <input class="header__search__input" placeholder="Search" type="text" spellcheck="false">
+                            <input class="header__search__input" placeholder="Search" type="text" spellcheck="false" v-model="qnaSearch" @keyup.enter="this.$el.querySelector('.header__search__button').click()">
                         </div>
                     </div>
                 </button>
-                <button class="header__search__button" style="display: none;" v-if="(page=='qna') || (page=='library') || (page=='timetable') || (page=='events')" @click="closeSearch"><ion-icon v-pre name="search-outline"></ion-icon></button>
+                <button class="header__search__button" v-if="(page=='qna') || (page=='library') || (page=='timetable') || (page=='events')"><ion-icon v-pre name="search-outline"></ion-icon></button>
             </div>
         </header>
 
@@ -107,7 +108,11 @@
         </main>
 
         <main class="main" v-else-if="page=='qna'">
-            <div class="main__container">
+            <div class="qna__empty" v-if="sortedQna.length==0">
+                <ion-icon v-pre name="file-tray-outline"></ion-icon>
+                <p class="qna__empty__text">No matching results were found</p>
+            </div>
+            <div class="main__container" v-else>
                 <div class="qna__item" v-for="question in sortedQna">
                     <div class="qna__clickable1" @click="pageChange('question')"></div>
                     <div class="qna__clickable2" @click="pageChange('question')"></div>

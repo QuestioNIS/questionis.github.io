@@ -148,14 +148,14 @@ body {
     cursor: default;
 }
 
+.header__filter-btn:hover .header__filter {
+    display: block;
+}
+
 .header__filter__content * {
     width: 100%;
     text-align: left;
     margin-bottom: 10px;
-}
-
-.header__filter-btn:hover .header__filter {
-    display: block;
 }
 
 .header__filter__tags {
@@ -195,7 +195,7 @@ body {
     position: relative;
     border-radius: 0 0 8px 8px;
     top: -18px;
-    margin-bottom: -8px;
+    margin-bottom: -18px;
     padding: 8px 0 0;
     width: inherit;
     overflow: hidden;
@@ -239,11 +239,26 @@ body {
     padding-top: 6px;
     padding-bottom: 4px !important;
     text-align: center;
-    flex: 1 1 106px;
+    flex: 1 1 60px;
+    transition: all .3s;
 }
 
 .header__filter__tag__label__other {
     margin-bottom: 10px;
+}
+
+#Art:checked ~ #Art__label, #Biology:checked ~ #Biology__label, #Chemistry:checked ~ #Chemistry__label, #English:checked ~ #English__label, #Geography:checked ~ #Geography__label, #GPPW:checked ~ #GPPW__label, #History:checked ~ #History__label, #ICT:checked ~ #ICT__label, #IMT:checked ~ #IMT__label, #Kazakh:checked ~ #Kazakh__label, #Math:checked ~ #Math__label, #PE:checked ~ #PE__label, #Physics:checked ~ #Physics__label, #Russian:checked ~ #Russian__label, #Other:checked ~ #Other__label {
+    background-color: var(--accent1);
+}
+
+.header__filter__button {
+    position: absolute;
+    right: 50px;
+    height: 30px;
+    width: 30px;
+    border-radius: 8px;
+    background-color: var(--body);
+    z-index: 2;
 }
 
 .header__search-btn, .header__logout-btn {
@@ -253,6 +268,7 @@ body {
 }
 
 .header__search {
+    display: none;
     position: absolute;
     top: 0;
     left: 60px;
@@ -260,6 +276,10 @@ body {
     height: 50px;
     cursor: default;
     z-index: 2;
+}
+
+.header__search-btn:hover .header__search {
+    display: block;
 }
 
 .header__search__content {
@@ -281,7 +301,7 @@ body {
     width: 30px;
     border-radius: 8px;
     background-color: var(--body);
-    z-index: 3;
+    z-index: 2;
 }
 
 .header__logout-btn ion-icon {
@@ -324,6 +344,25 @@ body {
     height: 100%;
     width: calc(100% - 20px);
     margin: 0 10px;
+}
+
+.qna__empty {
+    height: calc(100% - 40px);
+    width: calc(100% - 40px);
+    margin: calc(50% - 20px) 20px;
+}
+
+.qna__empty ion-icon {
+    --ionicon-stroke-width: 50px;
+    color: var(--accent1);
+    height: 100px;
+    width: 100px;
+    margin: 0 calc(50% - 50px);
+}
+
+.qna__empty__text {
+    font-size: 24px;
+    text-align: center;
 }
 
 .qna__item {
@@ -399,7 +438,7 @@ body {
     font-size: 12px;
     line-height: 12px;
     height: 20px;
-    padding: 3px 8px 4px;
+    padding: 4px 8px 3px;
     margin: 5px 5px 0 0;
     background-color: var(--qna-tags);
     border-radius: 20px;

@@ -17,94 +17,104 @@ let app = Vue.createApp({
         sortedQna: null,
         qna: [
             {
-                questionid: "01",
-                author: "Person 1",
-                date: "21/07/2021",
-                age: "1d",
-                title: "Question 1",
-                content: "What is the answer for this question?",
-                img: "null",
-                tags: [],
-                solved: "Solved",
-                comments: "15",
-                upvotes: "-11",
-                upvote: "",
-            },
-            {
-                questionid: "02",
-                author: "GuyWith ALongName",
-                date: "02/08/2021",
-                age: "2mo",
-                title: "What is the answer for this question?",
-                content: "What is the answer for this question?",
-                img: "images/profilePics/sf.png",
-                tags: ["Physics", "Chemistry"],
-                solved: "Solved",
-                comments: "15",
-                upvotes: "20",
-                upvote: "upvoted",
-            },
-            {
-                questionid: "03",
-                author: "Person 2",
-                date: "02/08/2021",
-                age: "10y",
-                title: "What is the answer for this question? What is the answer for this question?",
-                content: "What is the answer for this question?",
-                img: "images/profilePics/tm.png",
-                tags: ["GPPW", "Biology", "Geography", "Physics", "Chemistry"],
-                solved: "Unsolved",
-                comments: "15",
-                upvotes: "150",
-                upvote: "downvoted",
-            },
-            {
-                questionid: "04",
-                author: "Person 2",
-                date: "02/08/2021",
-                age: "10y",
-                title: "What is the answer for this question? What is the answer for this question?",
-                content: "What is the answer for this question?",
-                img: "images/profilePics/pf.png",
-                tags: ["GPPW", "Biology", "Geography", "Physics", "Chemistry"],
-                solved: "Unsolved",
-                comments: "15",
-                upvotes: "150",
-                upvote: "downvoted",
-            },
-            {
                 questionid: "05",
                 author: "Person 2",
-                date: "02/08/2021",
-                age: "10y",
-                title: "What is the answer for this question? What is the answer for this question?",
+                date: "20200402000000",
+                age: "1y",
+                title: "Earlier What is the answer for this question? What is the answer for this question?",
                 content: "What is the answer for this question?",
                 img: "images/profilePics/pm.png",
                 tags: ["GPPW", "Biology", "Geography", "Physics", "Chemistry"],
                 solved: "Unsolved",
                 comments: "15",
                 upvotes: "150",
-                upvote: "downvoted",
+                hotUpvotes: "5",
+                upvote: "",
             },
             {
                 questionid: "06",
                 author: "Person 2",
-                date: "02/08/2021",
-                age: "10y",
+                date: "20190802000000",
+                age: "2y",
                 title: "What is the answer for this question? What is the answer for this question?",
                 content: "What is the answer for this question?",
                 img: "images/profilePics/tf.png",
-                tags: ["GPPW", "Biology", "Geography", "Physics", "Chemistry"],
+                tags: ["Math", "PE", "Geography"],
                 solved: "Unsolved",
-                comments: "15",
+                comments: "1",
                 upvotes: "150",
+                hotUpvotes: "2",
                 upvote: "downvoted",
+            },
+            {
+                questionid: "01",
+                author: "Person 1",
+                date: "20210830000000",
+                age: "1d",
+                title: "Question 1",
+                content: "What is the answer for this question?",
+                img: "null",
+                tags: ["Other"],
+                solved: "Solved",
+                comments: "25",
+                upvotes: "-11",
+                hotUpvotes: "0",
+                upvote: "",
+            },
+            {
+                questionid: "03",
+                author: "Person 2",
+                date: "20210629000000",
+                age: "2mo",
+                title: "What is the answer for this question? What is the answer for this question?",
+                content: "What is the answer for this question?",
+                img: "images/profilePics/tm.png",
+                tags: ["Geography", "Physics", "English"],
+                solved: "Unsolved",
+                comments: "3",
+                upvotes: "215",
+                hotUpvotes: "50",
+                upvote: "downvoted",
+            },
+            {
+                questionid: "02",
+                author: "GuyWith ALongName",
+                date: "20210730000000",
+                age: "1mo",
+                title: "What is the answer for this question?",
+                content: "What is the answer for this question?",
+                img: "images/profilePics/sf.png",
+                tags: ["Physics", "Chemistry"],
+                solved: "Solved",
+                comments: "13",
+                upvotes: "20",
+                hotUpvotes: "8",
+                upvote: "upvoted",
+            },
+            {
+                questionid: "04",
+                author: "Person 2",
+                date: "20200602000000",
+                age: "1y",
+                title: "What is the answer for this question? What is the answer for this question?",
+                content: "What is the answer for this question?",
+                img: "images/profilePics/pf.png",
+                tags: ["Math", "Biology", "Geography", "Physics", "Chemistry"],
+                solved: "Unsolved",
+                comments: "6",
+                upvotes: "10",
+                hotUpvotes: "4",
+                upvote: "upvoted",
             },
         ],
         loggedin: false,
         sidebar: false,
         signinForm: false,
         signupForm: false,
+        qnaSolved: "All",
+        qnaSorting: "Hot",
+        qnaTags: [],
+        qnaSearch: "",
         loginErrorMessage: false,
         registerErrorMessage: false,
         parentErrorMessage: false,
@@ -165,21 +175,12 @@ let app = Vue.createApp({
         /* qna-ды датабейздан алып кою керек 
         this.qna =  */
 
-        this.sortedQna = this.qna
+        this.sortedQna = this.qna.sort((a,b) => (Number(b.hotUpvotes) - Number(a.hotUpvotes)))
     },
     methods: {
         pageChange(page) {
             window.sessionStorage.setItem("page", page)
             this.page = window.sessionStorage.getItem("page")
-        },
-        openSearch() {
-            this.$el.querySelector('.header__search').style.display = "block"
-            this.$el.querySelector('.header__search__button').style.display = "block"
-            this.$el.querySelector('.header__search__input').focus();
-        },
-        closeSearch() {
-            this.$el.querySelector('.header__search').style.display = "none"
-            this.$el.querySelector('.header__search__button').style.display = "none"
         },
         statusChange() {
             if(this.$el.querySelector(".form__status").value=="Student") {
@@ -429,7 +430,6 @@ let app = Vue.createApp({
                     }
                 }
             }
-            this.sortedQna = this.qna
         },
         downvote(id) {
             /* if(датабейзда осындай айдиы бар суракты даунвоут еткендердін арасында автордын иины бар) {
@@ -457,7 +457,26 @@ let app = Vue.createApp({
                     }
                 }
             }
+        },
+        updateQna() {
             this.sortedQna = this.qna
+            if(this.qnaSolved!="All") {
+                this.sortedQna = this.sortedQna.filter(question => question.solved==this.qnaSolved)
+            }
+            switch (this.qnaSorting) {
+                case "New":
+                    this.sortedQna.sort((a,b) => (Number(b.date) - Number(a.date)));
+                    break;
+                case "Top":
+                    this.sortedQna.sort((a,b) => (Number(b.upvotes) - Number(a.upvotes)));
+                    break;
+                case "Controversial":
+                    this.sortedQna.sort((a,b) => (Number(b.comments) - Number(a.comments)));
+                    break;
+                default:
+                    this.sortedQna.sort((a,b) => (Number(b.hotUpvotes) - Number(a.hotUpvotes)));
+            }
+            this.sortedQna = this.sortedQna.filter(question => this.qnaTags.every(tag => question.tags.includes(tag)))
         },
     }
 }).mount('#app');
