@@ -148,7 +148,7 @@ body {
     cursor: default;
 }
 
-.header__filter-btn:hover .header__filter {
+.header__filter-btn:active .header__filter {
     display: block;
 }
 
@@ -262,7 +262,7 @@ body {
     z-index: 2;
 }
 
-.header__filter-btn:hover ~ .header__filter__button {
+.header__filter-btn:active ~ .header__filter__button {
     display: block;
 }
 
@@ -283,7 +283,7 @@ body {
     z-index: 2;
 }
 
-.header__search-btn:hover .header__search {
+.header__search-btn:active .header__search {
     display: block;
 }
 
@@ -310,7 +310,7 @@ body {
     z-index: 2;
 }
 
-.header__search-btn:hover ~ .header__search__button {
+.header__search-btn:active ~ .header__search__button {
     display: block;
 }
 
