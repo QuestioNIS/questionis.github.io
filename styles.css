@@ -92,6 +92,7 @@ body {
     height: 50px;
     width: 100%;
     background-color: var(--accent1);
+    box-shadow: 0 0 10px  #555;
     z-index: 1;
 }
 
@@ -123,6 +124,11 @@ body {
     font-family: 'Teko', sans-serif;
 }
 
+.header__buttons {
+    height: 30px;
+    margin-left: auto;
+}
+
 .header ion-icon {
     margin: 5px;
     height: 20px;
@@ -130,9 +136,9 @@ body {
     color: var(--button-icon)
 }
 
-.header__filter-btn, .header__view-btn, .header__settings-btn {
+.header__filter-btn, .header__view-btn, .header__settings-btn, .header__add-btn, .header__search-btn, .header__logout-btn {
     width: 30px;
-    margin: 0 0 0 auto;
+    margin-right: 10px;
     background-color: var(--header-button);
 }
 
@@ -161,12 +167,14 @@ body {
         right: 50px;
         max-height: 30px;
         max-width: 30px;
+        box-shadow: 0 0 10px #555;
     }
     100% {
         top: 10px;
         right: 50px;
         max-height: 30px;
         max-width: 30px;
+        box-shadow: 0 0 10px #5550;
     }
 }
 
@@ -180,6 +188,7 @@ body {
         right: 50px;
         max-height: 30px;
         max-width: 30px;
+        box-shadow: 0 0 10px #5550;
     }
     30% {
         top: 50px;
@@ -312,18 +321,12 @@ body {
     transition-delay: .6s;
 }
 
-.header__search-btn, .header__logout-btn {
-    width: 30px;
-    margin: 0 10px;
-    background-color: var(--header-button);
-}
-
 .header__search {
     position: absolute;
-    top: 0;
+    top: 10px;
     right: 10px;
     width: calc(100% - 70px);
-    height: 50px;
+    height: 30px;
     cursor: default;
     background-color: var(--accent1);
     z-index: 2;
@@ -337,7 +340,7 @@ body {
 .header__search__content {
     width: 100%;
     display: flex;
-    margin: 10px 0 10px auto;
+    margin: 0 0 0 auto;
     border-radius: 8px;
     background-color: #fff;
     transition: all .3s;
@@ -846,6 +849,28 @@ body {
     position: relative;
     top: -4px;
     left: 3px;
+}
+
+.form__password-container {
+    position: relative;
+}
+
+.signin-form__password, .form__password, .form__password2 {
+    padding-right: 30px;
+}
+
+.form__eye-on, .form__eye-off {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.form__eye-on ion-icon, .form__eye-off ion-icon {
+    --ionicon-stroke-width: 32px;
+    color: var(--accent1);
+    height: 20px;
+    width: 20px;
+    margin: 5px 5px 5px calc(100% - 25px);
 }
 
 input[type="checkbox"] {

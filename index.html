@@ -26,75 +26,78 @@
                 <div class="header__title" v-else-if="page=='events'">Events</div>
                 <div class="header__title" v-else-if="page=='profile'">Profile</div>
                 <div class="header__title" v-else-if="page=='question'"></div>
-                <button class="header__filter-btn" v-if="(page=='qna') || (page=='library') || (page=='events')" @click="openFilter">
-                    <ion-icon v-pre name="filter-outline"></ion-icon>
-                    <div class="header__filter" style="visibility: hidden;">
-                        <div class="header__filter__content">
-                            <h2 class="header__filter__heading">Filter</h2>
-                            <select class="header__filter__solved" v-model="qnaSolved" @change="updateQna">
-                                <option value="All">All</option>
-                                <option value="Solved">Solved</option>
-                                <option value="Unsolved">Unsolved</option>
-                            </select>
-                            <select class="header__filter__sort" v-model="qnaSorting" @change="updateQna">
-                                <option value="Hot">Hot</option>
-                                <option value="New">New</option>
-                                <option value="Top">Top</option>
-                                <option value="Controversial">Controversial</option>
-                            </select>
-                            <input type="checkbox" class="header__filter__tags" id="header__filter__tags">
-                            <label class="header__filter__tags__label" for="header__filter__tags">Tags <ion-icon v-pre name="add-outline"></ion-icon></ion-icon></label>
-                            <div class="header__filter__tags__accordion">
-                                <hr>
-                                <div class="header__filter__tags__accordion__tags">
-                                    <input type="checkbox" class="header__filter__tag" id="Art" v-model="qnaTags" value="Art" @change="updateQna">
-                                    <label class="header__filter__tag__label" id="Art__label" for="Art">Art</label>
-                                    <input type="checkbox" class="header__filter__tag" id="Biology" v-model="qnaTags" value="Biology" @change="updateQna">
-                                    <label class="header__filter__tag__label" id="Biology__label" for="Biology">Biology</label>
-                                    <input type="checkbox" class="header__filter__tag" id="Chemistry" v-model="qnaTags" value="Chemistry" @change="updateQna">
-                                    <label class="header__filter__tag__label" id="Chemistry__label" for="Chemistry">Chemistry</label>
-                                    <input type="checkbox" class="header__filter__tag" id="English" v-model="qnaTags" value="English" @change="updateQna">
-                                    <label class="header__filter__tag__label" id="English__label" for="English">English</label>
-                                    <input type="checkbox" class="header__filter__tag" id="Geography" v-model="qnaTags" value="Geography" @change="updateQna">
-                                    <label class="header__filter__tag__label" id="Geography__label" for="Geography">Geography</label>
-                                    <input type="checkbox" class="header__filter__tag" id="GPPW" v-model="qnaTags" value="GPPW" @change="updateQna">
-                                    <label class="header__filter__tag__label" id="GPPW__label" for="GPPW">GPPW</label>
-                                    <input type="checkbox" class="header__filter__tag" id="History" v-model="qnaTags" value="History" @change="updateQna">
-                                    <label class="header__filter__tag__label" id="History__label" for="History">History</label>
-                                    <input type="checkbox" class="header__filter__tag" id="ICT" v-model="qnaTags" value="ICT" @change="updateQna">
-                                    <label class="header__filter__tag__label" id="ICT__label" for="ICT">ICT</label>
-                                    <input type="checkbox" class="header__filter__tag" id="IMT" v-model="qnaTags" value="IMT" @change="updateQna">
-                                    <label class="header__filter__tag__label" id="IMT__label" for="IMT">IMT</label>
-                                    <input type="checkbox" class="header__filter__tag" id="Kazakh" v-model="qnaTags" value="Kazakh" @change="updateQna">
-                                    <label class="header__filter__tag__label" id="Kazakh__label" for="Kazakh">Kazakh</label>
-                                    <input type="checkbox" class="header__filter__tag" id="Math" v-model="qnaTags" value="Math" @change="updateQna">
-                                    <label class="header__filter__tag__label" id="Math__label" for="Math">Math</label>
-                                    <input type="checkbox" class="header__filter__tag" id="PE" v-model="qnaTags" value="PE" @change="updateQna">
-                                    <label class="header__filter__tag__label" id="PE__label" for="PE">PE</label>
-                                    <input type="checkbox" class="header__filter__tag" id="Physics" v-model="qnaTags" value="Physics" @change="updateQna">
-                                    <label class="header__filter__tag__label" id="Physics__label" for="Physics">Physics</label>
-                                    <input type="checkbox" class="header__filter__tag" id="Russian" v-model="qnaTags" value="Russian" @change="updateQna">
-                                    <label class="header__filter__tag__label" id="Russian__label" for="Russian">Russian</label>
-                                    <input type="checkbox" class="header__filter__tag header__filter__tag__other" id="Other" v-model="qnaTags" value="Other" @change="updateQna">
-                                    <label class="header__filter__tag__label header__filter__tag__label__other" id="Other__label" for="Other">Other</label>
+                <div class="header__buttons">
+                    <button class="header__add-btn" v-if="(page=='qna') || (page=='library') || (page=='events')"><ion-icon v-pre name="add-outline"></ion-icon></button>
+                    <button class="header__filter-btn" v-if="(page=='qna') || (page=='library') || (page=='events')" @click="openFilter">
+                        <ion-icon v-pre name="filter-outline"></ion-icon>
+                        <div class="header__filter" style="visibility: hidden;">
+                            <div class="header__filter__content">
+                                <h2 class="header__filter__heading">Filter</h2>
+                                <select class="header__filter__solved" v-model="qnaSolved" @change="updateQna">
+                                    <option value="All">All</option>
+                                    <option value="Solved">Solved</option>
+                                    <option value="Unsolved">Unsolved</option>
+                                </select>
+                                <select class="header__filter__sort" v-model="qnaSorting" @change="updateQna">
+                                    <option value="Hot">Hot</option>
+                                    <option value="New">New</option>
+                                    <option value="Top">Top</option>
+                                    <option value="Controversial">Controversial</option>
+                                </select>
+                                <input type="checkbox" class="header__filter__tags" id="header__filter__tags">
+                                <label class="header__filter__tags__label" for="header__filter__tags">Tags <ion-icon v-pre name="add-outline"></ion-icon></ion-icon></label>
+                                <div class="header__filter__tags__accordion">
+                                    <hr>
+                                    <div class="header__filter__tags__accordion__tags">
+                                        <input type="checkbox" class="header__filter__tag" id="Art" v-model="qnaTags" value="Art" @change="updateQna">
+                                        <label class="header__filter__tag__label" id="Art__label" for="Art">Art</label>
+                                        <input type="checkbox" class="header__filter__tag" id="Biology" v-model="qnaTags" value="Biology" @change="updateQna">
+                                        <label class="header__filter__tag__label" id="Biology__label" for="Biology">Biology</label>
+                                        <input type="checkbox" class="header__filter__tag" id="Chemistry" v-model="qnaTags" value="Chemistry" @change="updateQna">
+                                        <label class="header__filter__tag__label" id="Chemistry__label" for="Chemistry">Chemistry</label>
+                                        <input type="checkbox" class="header__filter__tag" id="English" v-model="qnaTags" value="English" @change="updateQna">
+                                        <label class="header__filter__tag__label" id="English__label" for="English">English</label>
+                                        <input type="checkbox" class="header__filter__tag" id="Geography" v-model="qnaTags" value="Geography" @change="updateQna">
+                                        <label class="header__filter__tag__label" id="Geography__label" for="Geography">Geography</label>
+                                        <input type="checkbox" class="header__filter__tag" id="GPPW" v-model="qnaTags" value="GPPW" @change="updateQna">
+                                        <label class="header__filter__tag__label" id="GPPW__label" for="GPPW">GPPW</label>
+                                        <input type="checkbox" class="header__filter__tag" id="History" v-model="qnaTags" value="History" @change="updateQna">
+                                        <label class="header__filter__tag__label" id="History__label" for="History">History</label>
+                                        <input type="checkbox" class="header__filter__tag" id="ICT" v-model="qnaTags" value="ICT" @change="updateQna">
+                                        <label class="header__filter__tag__label" id="ICT__label" for="ICT">ICT</label>
+                                        <input type="checkbox" class="header__filter__tag" id="IMT" v-model="qnaTags" value="IMT" @change="updateQna">
+                                        <label class="header__filter__tag__label" id="IMT__label" for="IMT">IMT</label>
+                                        <input type="checkbox" class="header__filter__tag" id="Kazakh" v-model="qnaTags" value="Kazakh" @change="updateQna">
+                                        <label class="header__filter__tag__label" id="Kazakh__label" for="Kazakh">Kazakh</label>
+                                        <input type="checkbox" class="header__filter__tag" id="Math" v-model="qnaTags" value="Math" @change="updateQna">
+                                        <label class="header__filter__tag__label" id="Math__label" for="Math">Math</label>
+                                        <input type="checkbox" class="header__filter__tag" id="PE" v-model="qnaTags" value="PE" @change="updateQna">
+                                        <label class="header__filter__tag__label" id="PE__label" for="PE">PE</label>
+                                        <input type="checkbox" class="header__filter__tag" id="Physics" v-model="qnaTags" value="Physics" @change="updateQna">
+                                        <label class="header__filter__tag__label" id="Physics__label" for="Physics">Physics</label>
+                                        <input type="checkbox" class="header__filter__tag" id="Russian" v-model="qnaTags" value="Russian" @change="updateQna">
+                                        <label class="header__filter__tag__label" id="Russian__label" for="Russian">Russian</label>
+                                        <input type="checkbox" class="header__filter__tag header__filter__tag__other" id="Other" v-model="qnaTags" value="Other" @change="updateQna">
+                                        <label class="header__filter__tag__label header__filter__tag__label__other" id="Other__label" for="Other">Other</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </button>
-                <button class="header__filter__button" style="visibility: hidden;" v-if="(page=='qna') || (page=='library') || (page=='events')" @click="closeFilter"><ion-icon v-pre name="filter-outline"></ion-icon></button>
-                <button class="header__view-btn" v-else-if="page=='timetable'"><ion-icon v-pre name="eye-outline"></ion-icon></button>
-                <button class="header__settings-btn" v-else-if="page=='profile'"><ion-icon v-pre name="settings-outline"></ion-icon></button>
-                <button class="header__logout-btn" v-if="page=='profile'"><ion-icon v-pre name="log-out-outline"></ion-icon></button>
-                <button class="header__search-btn" v-else-if="(page=='qna') || (page=='library') || (page=='timetable') || (page=='events')" @click="openSearch">
-                    <ion-icon v-pre name="search-outline"></ion-icon>
-                    <div class="header__search" style="visibility: hidden;">
-                        <div class="header__search__content">
-                            <input class="header__search__input" placeholder="Search" type="text" spellcheck="false" v-model="qnaSearch" @input="updateQna" @keyup.enter="this.$el.querySelector('.header__search__button').click()">
+                    </button>
+                    <button class="header__filter__button" style="visibility: hidden;" v-if="(page=='qna') || (page=='library') || (page=='events')" @click="closeFilter"><ion-icon v-pre name="filter-outline"></ion-icon></button>
+                    <button class="header__view-btn" v-else-if="page=='timetable'"><ion-icon v-pre name="eye-outline"></ion-icon></button>
+                    <button class="header__settings-btn" v-else-if="page=='profile'"><ion-icon v-pre name="settings-outline"></ion-icon></button>
+                    <button class="header__logout-btn" v-if="page=='profile'"><ion-icon v-pre name="log-out-outline"></ion-icon></button>
+                    <button class="header__search-btn" v-else-if="(page=='qna') || (page=='library') || (page=='timetable') || (page=='events')" @click="openSearch">
+                        <ion-icon v-pre name="search-outline"></ion-icon>
+                        <div class="header__search" style="visibility: hidden;">
+                            <div class="header__search__content">
+                                <input class="header__search__input" placeholder="Search" type="text" spellcheck="false" v-model="qnaSearch" @input="updateQna" @keyup.enter="this.$el.querySelector('.header__search__button').click()">
+                            </div>
                         </div>
-                    </div>
-                </button>
-                <button class="header__search__button" style="visibility: hidden;" v-if="(page=='qna') || (page=='library') || (page=='timetable') || (page=='events')" @click="closeSearch"><ion-icon v-pre name="search-outline"></ion-icon></button>
+                    </button>
+                    <button class="header__search__button" style="visibility: hidden;" v-if="(page=='qna') || (page=='library') || (page=='timetable') || (page=='events')" @click="closeSearch"><ion-icon v-pre name="search-outline"></ion-icon></button>
+                </div>
             </div>
         </header>
 
@@ -199,13 +202,21 @@
             <div class="form__container">
                 <div class="form__x" onclick="enableScroll()" @click="signinForm=false; clearSignin()"></div>
                 <div class="form__content">
-                    <h2 class="form__heading">Sign in</h2>
+                    <h2 class="form__heading">Log in</h2>
                     <input class="signin-form__iin" placeholder="IIN" type="text" @keyup.enter="this.$el.querySelector('.signin-form__password').focus()" spellcheck="false">
-                    <input class="signin-form__password" placeholder="Password" type="password" @keyup.enter="this.$el.querySelector('.signin-primary').click()">
+                    <div class="form__password-container">
+                        <input class="signin-form__password" placeholder="Password" type="password" spellcheck="false" @keyup.enter="this.$el.querySelector('.signin-primary').click()">
+                        <div class="form__eye-on" style="display: block;" @click="this.$el.querySelector('.signin-form__password').type='text'; this.$el.querySelector('.form__eye-off1').style.display='block'; this.$el.querySelector('.signin-form__password').focus()">
+                            <ion-icon v-pre name="eye-outline"></ion-icon>
+                        </div>
+                        <div class="form__eye-off form__eye-off1" style="display: none;" @click="this.$el.querySelector('.signin-form__password').type='password'; this.$el.querySelector('.form__eye-off1').style.display='none'; this.$el.querySelector('.signin-form__password').focus()">
+                            <ion-icon v-pre name="eye-off-outline"></ion-icon>
+                        </div>
+                    </div>
                     <input class="signin-form__remember" id="signin-form__remember" type="checkbox">
                     <label class="form__remember__label" for="signin-form__remember">Remember me</label>
-                    <button class="primary signin-primary" @click="signin">SIGN IN</button>
-                    <button class="secondary" @click="signupForm=true; clearSignin()">SIGN UP</button>
+                    <button class="primary signin-primary" @click="signin">LOG IN</button>
+                    <button class="secondary" @click="signupForm=true; clearSignin()">REGISTER</button>
                 </div>
             </div>
         </div>
@@ -215,7 +226,7 @@
             <div class="form__container">
                 <div class="form__x" onclick="enableScroll()" @click="signinForm=false; signupForm=false; clearSignup()"></div>
                 <div class="form__content signup">
-                    <h2 class="form__heading">Sign up</h2>
+                    <h2 class="form__heading">Register</h2>
                     <input class="form__iin" placeholder="IIN" type="text" @keyup.enter="this.$el.querySelector('.form__fname').focus()" spellcheck="false">
                     <input class="form__fname" placeholder="First name" type="text" @keyup.enter="this.$el.querySelector('.form__lname').focus()" spellcheck="false">
                     <input class="form__lname" placeholder="Last name" type="text" spellcheck="false">
@@ -281,12 +292,28 @@
                         <option value="Russian language">Russian language</option>
                     </select>
                     <input class="form__childIIN" style="display: none" placeholder="IIN of the child" type="text" @keyup.enter="this.$el.querySelector('.form__password').focus()" spellcheck="false">
-                    <input class="form__password" placeholder="Password" type="password" @keyup.enter="this.$el.querySelector('.form__password2').focus()">
-                    <input class="form__password2" placeholder="Confirm password" type="password" @keyup.enter="this.$el.querySelector('.signup-primary').click()">
+                    <div class="form__password-container">
+                        <input class="form__password" placeholder="Password" type="password" spellcheck="false" @keyup.enter="this.$el.querySelector('.form__password2').focus()">
+                        <div class="form__eye-on" style="display: block;" @click="this.$el.querySelector('.form__password').type='text'; this.$el.querySelector('.form__eye-off2').style.display='block'; this.$el.querySelector('.form__password').focus()">
+                            <ion-icon v-pre name="eye-outline"></ion-icon>
+                        </div>
+                        <div class="form__eye-off form__eye-off2" style="display: none;" @click="this.$el.querySelector('.form__password').type='password'; this.$el.querySelector('.form__eye-off2').style.display='none'; this.$el.querySelector('.form__password').focus()">
+                            <ion-icon v-pre name="eye-off-outline"></ion-icon>
+                        </div>
+                    </div>
+                    <div class="form__password-container">
+                        <input class="form__password2" placeholder="Confirm password" type="password" spellcheck="false" @keyup.enter="this.$el.querySelector('.signup-primary').click()">
+                        <div class="form__eye-on" style="display: block;" @click="this.$el.querySelector('.form__password2').type='text'; this.$el.querySelector('.form__eye-off3').style.display='block'; this.$el.querySelector('.form__password2').focus()">
+                            <ion-icon v-pre name="eye-outline"></ion-icon>
+                        </div>
+                        <div class="form__eye-off form__eye-off3" style="display: none;" @click="this.$el.querySelector('.form__password2').type='password'; this.$el.querySelector('.form__eye-off3').style.display='none'; this.$el.querySelector('.form__password2').focus()">
+                            <ion-icon v-pre name="eye-off-outline"></ion-icon>
+                        </div>
+                    </div>
                     <input class="form__remember" id="form__remember" type="checkbox">
                     <label class="form__remember__label" for="form__remember">Remember me</label>
-                    <button class="primary signup-primary" @click="signup">SIGN UP</button>
-                    <button class="secondary" @click="signupForm=false; clearSignup()">SIGN IN</button>
+                    <button class="primary signup-primary" @click="signup">REGISTER</button>
+                    <button class="secondary" @click="signupForm=false; clearSignup()">LOG IN</button>
                 </div>
             </div>
         </div>

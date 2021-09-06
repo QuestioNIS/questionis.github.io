@@ -194,7 +194,7 @@ let app = Vue.createApp({
         openSearch() {
             this.$el.querySelector('.header__search').style.visibility = "visible"
             this.$el.querySelector('.header__search__button').style.visibility = "visible"
-            this.$el.querySelector('.header__search__input').focus();
+            window.setTimeout(() => this.$el.querySelector('.header__search__input').focus(), 400)
             this.closeFilter()
         },
         closeSearch() {
