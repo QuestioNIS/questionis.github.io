@@ -781,13 +781,10 @@ body {
 
 .form__container {
     position: absolute;
-    height: calc(100% - 40px);
-    width: calc(100% - 40px);
-    margin: 20px;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    border-radius: 8px;
+    bottom: 0;
+    height: auto;
+    width: 100%;
+    border-radius: 20px 20px 0 0;
     background-color: var(--body);
 }
 
@@ -797,46 +794,43 @@ body {
 
 @keyframes popup {
     0% {
-        transform: scale(0.8);
+        bottom: -100%;
     }
-}
-
-.form__x {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 40px;
-    width: 40px;
-}
-
-.form__x::before,
-.form__x::after {
-    content: "";
-    position: absolute;
-    top: 16px;
-    right: 7px;
-    height: 4px;
-    width: 24px;
-    border-radius: 5px;
-    background-color: #000;
-    transform: rotate(45deg);
-}
-
-.form__x::after {
-    transform: rotate(-45deg);
 }
 
 .form__content {
     max-height: 100%;
-    width: 100%;
+    width: calc(100% - 40px);
+    margin: 20px;
     overflow-y: auto;
 }
 
-.form__content h2,
 .form__content input,
 .form__content select,
 .form__content .primary {
     margin-bottom: 10px;
+}
+
+.form__heading {
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    width: 50%;
+    text-align: center;
+    border-radius: 0 20px 0 0;
+}
+
+.form__heading2 {
+    background-color: #ddd;
+    border-radius: 20px 0 0 0;
+}
+
+.form__signin .form__heading {
+    border-radius: 20px 0 0 0;
+}
+
+.form__signin .form__heading2 {
+    border-radius: 0 20px 0 0;
 }
 
 .form input,

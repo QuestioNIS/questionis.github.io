@@ -200,9 +200,9 @@
         <div class="form form__signin" v-show="signinForm">
             <div class="blank" onclick="enableScroll()" @click="signinForm=false; clearSignin()"></div>
             <div class="form__container">
-                <div class="form__x" onclick="enableScroll()" @click="signinForm=false; clearSignin()"></div>
+                <p class="form__heading">Log in</p>
+                <p class="form__heading form__heading2">Register</p>
                 <div class="form__content">
-                    <h2 class="form__heading">Log in</h2>
                     <input class="signin-form__iin" placeholder="IIN" type="text" @keyup.enter="this.$el.querySelector('.signin-form__password').focus()" spellcheck="false">
                     <div class="form__password-container">
                         <input class="signin-form__password" placeholder="Password" type="password" spellcheck="false" @keyup.enter="this.$el.querySelector('.signin-primary').click()">
@@ -224,9 +224,9 @@
         <div class="form" v-show="signupForm">
             <div class="blank" onclick="enableScroll()" @click="signinForm=false; signupForm=false; clearSignup()"></div>
             <div class="form__container">
-                <div class="form__x" onclick="enableScroll()" @click="signinForm=false; signupForm=false; clearSignup()"></div>
+                <p class="form__heading form__heading2">Log in</p>
+                <p class="form__heading">Register</p>
                 <div class="form__content signup">
-                    <h2 class="form__heading">Register</h2>
                     <input class="form__iin" placeholder="IIN" type="text" @keyup.enter="this.$el.querySelector('.form__fname').focus()" spellcheck="false">
                     <input class="form__fname" placeholder="First name" type="text" @keyup.enter="this.$el.querySelector('.form__lname').focus()" spellcheck="false">
                     <input class="form__lname" placeholder="Last name" type="text" spellcheck="false">
