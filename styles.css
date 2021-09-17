@@ -48,6 +48,14 @@ button, input, select {
     box-sizing: border-box;
 }
 
+textarea {
+    border: none;
+    padding: 4px;
+    border-radius: 8px;
+    height: 120px;
+    box-sizing: border-box;
+}
+
 input {
     padding: 2px 4px;
 }
@@ -62,7 +70,8 @@ ion-icon {
 
 button:focus,
 input:focus,
-select:focus {
+select:focus,
+textarea:focus {
     outline: none;
 }
 
@@ -765,10 +774,6 @@ body {
     height: inherit;
     width: inherit;
     opacity: 0.5;
-}
-
-.sidebar .blank,
-.form__signin .blank {
     animation: blank 0.5s;
     background-color: #000;
 }
@@ -788,7 +793,7 @@ body {
     background-color: var(--body);
 }
 
-.form__signin .form__container {
+.form .form__container {
     animation: popup 0.5s;
 }
 
@@ -807,15 +812,23 @@ body {
 
 .form__content input,
 .form__content select,
-.form__content .primary {
+.form__content textarea {
     margin-bottom: 10px;
+}
+
+.form__headings {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    width: 100%;
+    border-bottom: 2px solid #ddd;
 }
 
 .form__heading {
     display: inline-block;
     height: 50px;
     line-height: 50px;
-    width: 50%;
+    width: 100%;
     text-align: center;
     border-radius: 0 20px 0 0;
 }
@@ -834,8 +847,8 @@ body {
 }
 
 .form input,
-.form button,
-.form select {
+.form select,
+.form textarea {
     width: 100%;
 }
 
@@ -843,6 +856,39 @@ body {
     position: relative;
     top: -4px;
     left: 3px;
+}
+
+.form__content-text {
+    display: block;
+}
+
+.form__img {
+    position: relative;
+    height: 76px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.form__img__upload {
+    position: absolute;
+    top: 0;
+    height: 76px;
+    opacity: 0;
+}
+
+.form__img ion-icon {
+    height: 30px;
+    width: 30px;
+    color: var(--accent1);
+    --ionicon-stroke-width: 40px;
+    margin: 10px calc(50% - 15px) -5px;
+}
+
+.form__img p {
+    text-align: center;
+    margin: 0;
 }
 
 .form__password-container {
@@ -872,12 +918,19 @@ input[type="checkbox"] {
     width: 20px !important;
 }
 
+.form__buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
 .primary {
     background-color: var(--accent1);
+    width: calc(50% - 5px);
 }
 
 .secondary {
     border: 2px solid var(--accent1);
+    width: calc(50% - 5px);
 }
 
 .message {

@@ -27,7 +27,7 @@
                 <div class="header__title" v-else-if="page=='profile'">Profile</div>
                 <div class="header__title" v-else-if="page=='question'"></div>
                 <div class="header__buttons">
-                    <button class="header__add-btn" v-if="(page=='qna') || (page=='library') || (page=='events')"><ion-icon v-pre name="add-outline"></ion-icon></button>
+                    <button class="header__add-btn" v-if="(page=='qna') || (page=='library') || (page=='events')" onclick="disableScroll()" @click="addQna=true; closeSearch(); closeFilter()"><ion-icon v-pre name="add-outline"></ion-icon></button>
                     <button class="header__filter-btn" v-if="(page=='qna') || (page=='library') || (page=='events')" @click="openFilter">
                         <ion-icon v-pre name="filter-outline"></ion-icon>
                         <div class="header__filter" style="visibility: hidden;">
@@ -197,11 +197,37 @@
             </div>
         </aside>
 
+        <div class="form" v-show="addQna">
+            <div class="blank" onclick="enableScroll()" @click="addQna=false"></div>
+            <div class="form__container">
+                <div class="form__headings">
+                    <p class="form__heading">Add question</p>
+                </div>
+                <div class="form__content">
+                    <input class="form__title" placeholder="Title" type="text" @keyup.enter="this.$el.querySelector('.form__content-text').focus()" spellcheck="false">
+                    <textarea style="resize: none;" class="form__content-text" placeholder="Content" @keyup.enter="this.$el.querySelector('.form__img').click()" spellcheck="false"></textarea>
+                    <div class="form__img">
+                        <ion-icon v-pre name="image-outline"></ion-icon>
+                        <p>Upload image</p>
+                        <input class="form__img__upload" type="file">
+                    </div>
+                    <input class="signin-form__remember" id="signin-form__remember" type="checkbox">
+                    <label class="form__remember__label" for="signin-form__remember">Remember me</label>
+                    <div class="form__buttons">
+                        <button class="secondary" @click="signinForm=false; clearSignin()">CANCEL</button>
+                        <button class="primary signin-primary" @click="signin">LOG IN</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="form form__signin" v-show="signinForm">
             <div class="blank" onclick="enableScroll()" @click="signinForm=false; clearSignin()"></div>
             <div class="form__container">
-                <p class="form__heading">Log in</p>
-                <p class="form__heading form__heading2">Register</p>
+                <div class="form__headings">
+                    <p class="form__heading">Log in</p>
+                    <p class="form__heading form__heading2" @click="signinForm=false; signupForm=true; clearSignin()">Register</p>
+                </div>
                 <div class="form__content">
                     <input class="signin-form__iin" placeholder="IIN" type="text" @keyup.enter="this.$el.querySelector('.signin-form__password').focus()" spellcheck="false">
                     <div class="form__password-container">
@@ -215,17 +241,21 @@
                     </div>
                     <input class="signin-form__remember" id="signin-form__remember" type="checkbox">
                     <label class="form__remember__label" for="signin-form__remember">Remember me</label>
-                    <button class="primary signin-primary" @click="signin">LOG IN</button>
-                    <button class="secondary" @click="signupForm=true; clearSignin()">REGISTER</button>
+                    <div class="form__buttons">
+                        <button class="secondary" @click="signinForm=false; clearSignin()">CANCEL</button>
+                        <button class="primary signin-primary" @click="signin">LOG IN</button>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="form" v-show="signupForm">
-            <div class="blank" onclick="enableScroll()" @click="signinForm=false; signupForm=false; clearSignup()"></div>
+            <div class="blank" onclick="enableScroll()" @click="signupForm=false; clearSignup()"></div>
             <div class="form__container">
-                <p class="form__heading form__heading2">Log in</p>
-                <p class="form__heading">Register</p>
+                <div class="form__headings">
+                    <p class="form__heading form__heading2" @click="signupForm=false; signinForm=true; clearSignup()">Log in</p>
+                    <p class="form__heading">Register</p>
+                </div>
                 <div class="form__content signup">
                     <input class="form__iin" placeholder="IIN" type="text" @keyup.enter="this.$el.querySelector('.form__fname').focus()" spellcheck="false">
                     <input class="form__fname" placeholder="First name" type="text" @keyup.enter="this.$el.querySelector('.form__lname').focus()" spellcheck="false">
@@ -312,8 +342,10 @@
                     </div>
                     <input class="form__remember" id="form__remember" type="checkbox">
                     <label class="form__remember__label" for="form__remember">Remember me</label>
-                    <button class="primary signup-primary" @click="signup">REGISTER</button>
-                    <button class="secondary" @click="signupForm=false; clearSignup()">LOG IN</button>
+                    <div class="form__buttons">
+                        <button class="secondary" @click="signupForm=false; clearSignup()">CANCEL</button>
+                        <button class="primary signup-primary" @click="signup">REGISTER</button>
+                    </div>
                 </div>
             </div>
         </div>

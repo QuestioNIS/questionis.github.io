@@ -111,6 +111,7 @@ let app = Vue.createApp({
         sidebar: false,
         signinForm: false,
         signupForm: false,
+        addQna: false,
         qnaSolved: "All",
         qnaSorting: "Hot",
         qnaTags: [],
