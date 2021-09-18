@@ -191,6 +191,7 @@ let app = Vue.createApp({
         closeFilter() {
             this.$el.querySelector('.header__filter').style.visibility = "hidden"
             this.$el.querySelector('.header__filter__button').style.visibility = "hidden"
+            this.$el.querySelector('.header__filter__tags').checked = false
         },
         openSearch() {
             this.$el.querySelector('.header__search').style.visibility = "visible"

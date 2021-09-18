@@ -211,11 +211,45 @@
                         <p>Upload image</p>
                         <input class="form__img__upload" type="file">
                     </div>
-                    <input class="signin-form__remember" id="signin-form__remember" type="checkbox">
-                    <label class="form__remember__label" for="signin-form__remember">Remember me</label>
+                    <div class="qna__filter__tags__label" for="qna__filter__tags">Tags</div>
+                    <div class="qna__filter__tags__accordion">
+                        <hr>
+                        <div class="qna__filter__tags__accordion__tags">
+                            <input type="checkbox" class="header__filter__tag" id="question__Art" v-model="questionTags" value="Art">
+                            <label class="header__filter__tag__label" id="question__Art__label" for="question__Art">Art</label>
+                            <input type="checkbox" class="header__filter__tag" id="question__Biology" v-model="questionTags" value="Biology">
+                            <label class="header__filter__tag__label" id="question__Biology__label" for="question__Biology">Biology</label>
+                            <input type="checkbox" class="header__filter__tag" id="question__Chemistry" v-model="questionTags" value="Chemistry">
+                            <label class="header__filter__tag__label" id="question__Chemistry__label" for="question__Chemistry">Chemistry</label>
+                            <input type="checkbox" class="header__filter__tag" id="question__English" v-model="questionTags" value="English">
+                            <label class="header__filter__tag__label" id="question__English__label" for="question__English">English</label>
+                            <input type="checkbox" class="header__filter__tag" id="question__Geography" v-model="questionTags" value="Geography">
+                            <label class="header__filter__tag__label" id="question__Geography__label" for="question__Geography">Geography</label>
+                            <input type="checkbox" class="header__filter__tag" id="question__GPPW" v-model="questionTags" value="GPPW">
+                            <label class="header__filter__tag__label" id="question__GPPW__label" for="question__GPPW">GPPW</label>
+                            <input type="checkbox" class="header__filter__tag" id="question__History" v-model="questionTags" value="History">
+                            <label class="header__filter__tag__label" id="question__History__label" for="question__History">History</label>
+                            <input type="checkbox" class="header__filter__tag" id="question__ICT" v-model="questionTags" value="ICT">
+                            <label class="header__filter__tag__label" id="question__ICT__label" for="question__ICT">ICT</label>
+                            <input type="checkbox" class="header__filter__tag" id="question__IMT" v-model="questionTags" value="IMT">
+                            <label class="header__filter__tag__label" id="question__IMT__label" for="question__IMT">IMT</label>
+                            <input type="checkbox" class="header__filter__tag" id="question__Kazakh" v-model="questionTags" value="Kazakh">
+                            <label class="header__filter__tag__label" id="question__Kazakh__label" for="question__Kazakh">Kazakh</label>
+                            <input type="checkbox" class="header__filter__tag" id="question__Math" v-model="questionTags" value="Math">
+                            <label class="header__filter__tag__label" id="question__Math__label" for="question__Math">Math</label>
+                            <input type="checkbox" class="header__filter__tag" id="question__PE" v-model="questionTags" value="PE">
+                            <label class="header__filter__tag__label" id="question__PE__label" for="question__PE">PE</label>
+                            <input type="checkbox" class="header__filter__tag" id="question__Physics" v-model="questionTags" value="Physics">
+                            <label class="header__filter__tag__label" id="question__Physics__label" for="question__Physics">Physics</label>
+                            <input type="checkbox" class="header__filter__tag" id="question__Russian" v-model="questionTags" value="Russian">
+                            <label class="header__filter__tag__label" id="question__Russian__label" for="question__Russian">Russian</label>
+                            <input type="checkbox" class="header__filter__tag header__filter__tag__other" id="question__Other" v-model="qnaTags" value="Other">
+                            <label class="header__filter__tag__label header__filter__tag__label__other" id="question__Other__label" for="question__Other">Other</label>
+                        </div>
+                    </div>
                     <div class="form__buttons">
                         <button class="secondary" @click="signinForm=false; clearSignin()">CANCEL</button>
-                        <button class="primary signin-primary" @click="signin">LOG IN</button>
+                        <button class="primary signin-primary" @click="signin">POST</button>
                     </div>
                 </div>
             </div>
