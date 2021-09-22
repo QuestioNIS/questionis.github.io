@@ -115,6 +115,7 @@ let app = Vue.createApp({
         qnaSolved: "All",
         qnaSorting: "Hot",
         qnaTags: [],
+        questionTags: [],
         qnaSearch: "",
         loginErrorMessage: false,
         registerErrorMessage: false,
@@ -249,6 +250,12 @@ let app = Vue.createApp({
             this.$el.querySelector(".form__password").value = ""
             this.$el.querySelector(".form__password2").value = ""
             this.$el.querySelector(".form__remember").checked = false
+        },
+        clearAddQna() {
+            this.$el.querySelector(".form__title__qna").value = "";
+            this.$el.querySelector(".form__content__qna").value = "";
+            this.$el.querySelector(".form__img__upload").value = null;
+            this.questionTags = []
         },
         signin() {
             var signinIIN = (this.$el.querySelector(".signin-form__iin").value).replace(/^\s+|\s+$/gm,'')

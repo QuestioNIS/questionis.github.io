@@ -197,15 +197,15 @@
             </div>
         </aside>
 
-        <div class="form" v-show="addQna">
-            <div class="blank" onclick="enableScroll()" @click="addQna=false"></div>
+        <div class="form form__addQna" v-show="addQna">
+            <div class="blank" onclick="enableScroll()" @click="addQna=false; clearAddQna()"></div>
             <div class="form__container">
                 <div class="form__headings">
                     <p class="form__heading">Add question</p>
                 </div>
                 <div class="form__content">
-                    <input class="form__title" placeholder="Title" type="text" @keyup.enter="this.$el.querySelector('.form__content-text').focus()" spellcheck="false">
-                    <textarea style="resize: none;" class="form__content-text" placeholder="Content" @keyup.enter="this.$el.querySelector('.form__img').click()" spellcheck="false"></textarea>
+                    <input class="form__title form__title__qna" placeholder="Title" type="text" @keyup.enter="this.$el.querySelector('.form__content-text').focus()" spellcheck="false">
+                    <textarea style="resize: none;" class="form__content-text form__content__qna" placeholder="Content" @keyup.enter="this.$el.querySelector('.form__img').click()" spellcheck="false"></textarea>
                     <div class="form__img">
                         <ion-icon v-pre name="image-outline"></ion-icon>
                         <p>Upload image</p>
@@ -248,7 +248,7 @@
                         </div>
                     </div>
                     <div class="form__buttons">
-                        <button class="secondary" @click="signinForm=false; clearSignin()">CANCEL</button>
+                        <button class="secondary" @click="addQna=false; clearAddQna()">CANCEL</button>
                         <button class="primary signin-primary" @click="signin">POST</button>
                     </div>
                 </div>

@@ -52,7 +52,6 @@ textarea {
     border: none;
     padding: 4px;
     border-radius: 8px;
-    height: 120px;
     box-sizing: border-box;
 }
 
@@ -641,44 +640,22 @@ body {
     background-color: #fff;
     position: relative;
     border-radius: 0 0 8px 8px;
-    top: -18px;
-    margin-bottom: -18px;
+    top: -8px;
+    margin-bottom: 2px;
     padding: 8px 0 0;
     width: 100%;
-    max-height: 500px;
+    height: auto;
 }
 
 .qna__filter__tags__accordion__tags {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    width: 100%;
-    margin: 0 7.5px;
+    width: calc(100% - 20px);
+    margin: 15px 7.5px 5px;
 }
 
-.header__filter__tag {
-    display: none;
-}
-
-.header__filter__tag__label {
-    background-color: var(--body);
-    border-radius: 20px;
-    font-size: 12px;
-    line-height: 12px;
-    height: 24px;
-    margin: 0 2.5px 5px;
-    padding-top: 6px;
-    padding-bottom: 4px !important;
-    text-align: center;
-    flex: 1 1 60px;
-    transition: all .3s;
-}
-
-.header__filter__tag__label__other {
-    margin-bottom: 10px;
-}
-
-#Art:checked ~ #Art__label, #Biology:checked ~ #Biology__label, #Chemistry:checked ~ #Chemistry__label, #English:checked ~ #English__label, #Geography:checked ~ #Geography__label, #GPPW:checked ~ #GPPW__label, #History:checked ~ #History__label, #ICT:checked ~ #ICT__label, #IMT:checked ~ #IMT__label, #Kazakh:checked ~ #Kazakh__label, #Math:checked ~ #Math__label, #PE:checked ~ #PE__label, #Physics:checked ~ #Physics__label, #Russian:checked ~ #Russian__label, #Other:checked ~ #Other__label {
+#question__Art:checked ~ #question__Art__label, #question__Biology:checked ~ #question__Biology__label, #question__Chemistry:checked ~ #question__Chemistry__label, #question__English:checked ~ #question__English__label, #question__Geography:checked ~ #question__Geography__label, #question__GPPW:checked ~ #question__GPPW__label, #question__History:checked ~ #question__History__label, #question__ICT:checked ~ #question__ICT__label, #question__IMT:checked ~ #question__IMT__label, #question__Kazakh:checked ~ #question__Kazakh__label, #question__Math:checked ~ #question__Math__label, #question__PE:checked ~ #question__PE__label, #question__Physics:checked ~ #question__Physics__label, #question__Russian:checked ~ #question__Russian__label, #question__Other:checked ~ #question__Other__label {
     background-color: var(--accent1);
 }
 
@@ -851,6 +828,10 @@ body {
     background-color: var(--body);
 }
 
+.form__addQna .form__container {
+    height: calc(100% - 50px);
+}
+
 .form .form__container {
     animation: popup 0.5s;
 }
@@ -862,7 +843,7 @@ body {
 }
 
 .form__content {
-    max-height: 100%;
+    height: calc(100% - 90px);
     width: calc(100% - 40px);
     margin: 20px;
     overflow-y: auto;
@@ -879,7 +860,6 @@ body {
     justify-content: space-between;
     height: 50px;
     width: 100%;
-    border-bottom: 2px solid #ddd;
 }
 
 .form__heading {
@@ -889,6 +869,7 @@ body {
     width: 100%;
     text-align: center;
     border-radius: 0 20px 0 0;
+    border-bottom: 2px solid #999;
 }
 
 .form__heading2 {
@@ -918,6 +899,8 @@ body {
 
 .form__content-text {
     display: block;
+    min-height: 70px;
+    height: calc(100% - 350px);
 }
 
 .form__img {
