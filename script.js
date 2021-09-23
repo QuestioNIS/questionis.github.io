@@ -254,7 +254,7 @@ let app = Vue.createApp({
         clearAddQna() {
             this.$el.querySelector(".form__title__qna").value = "";
             this.$el.querySelector(".form__content__qna").value = "";
-            this.$el.querySelector(".form__img__upload").value = null;
+            this.$el.querySelector(".form__img__upload").value = "";
             this.questionTags = []
         },
         signin() {

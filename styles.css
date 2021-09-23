@@ -916,7 +916,11 @@ body {
     position: absolute;
     top: 0;
     height: 76px;
-    opacity: 0;
+    opacity: 1;
+}
+
+.form__img__upload:empty {
+    opacity: 1;
 }
 
 .form__img ion-icon {
